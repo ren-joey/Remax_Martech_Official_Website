@@ -4,6 +4,7 @@
         "linebreak",
         "stylelint",
         "remax",
-        "martech"
+        "martech",
+        "tailwindcss"
     ]
 }
