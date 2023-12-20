@@ -4,6 +4,8 @@ import {
     Route
 } from 'react-router-dom';
 import Home from '../Pages/Home';
+import AboutUs from '../Pages/AboutUs';
+import Service from '../Pages/Service';
 
 const Router = () => {
     return (
@@ -12,6 +14,14 @@ const Router = () => {
                 <Route
                     path="/"
                     element={<Home />}
+                />
+                <Route
+                    path="/about-us"
+                    element={<AboutUs />}
+                />
+                <Route
+                    path="/service/:service"
+                    element={<Service />}
                 />
             </Routes>
         </BrowserRouter>
