@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import Router from './Router';
-import './index.scss';
+import './index.css';
 import GlobDataProvider from './Context/GlobDataProvider';
 import './i18n';
 
