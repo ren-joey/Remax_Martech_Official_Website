@@ -1,0 +1,35 @@
+@import "../../based";
+
+.messager-container {
+    position: fixed;
+    right: 0;
+    bottom: $header * 2;
+    z-index: $header-z + 1;
+
+    > .messager {
+        display: flex;
+        align-items: center;
+        height: $header;
+        background-color: $white;
+        transition: 0.3s ease-out transform;
+        transform: translate(calc(100% - $header));
+
+        > .icon {
+            width: $header;
+            height: $header;
+        }
+
+        > .text {
+            padding: 0 1rem;
+            font-size: 1.2rem;
+            font-weight: bolder;
+            color: $dark-blue;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        &:hover {
+            transform: translate(0);
+        }
+    }
+}

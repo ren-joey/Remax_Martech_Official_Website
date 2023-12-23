@@ -73,7 +73,8 @@ module.exports = {
         'react/jsx-max-props-per-line': [2, { maximum: 1 }],
         'react/jsx-closing-bracket-location': 2,
         'react/jsx-closing-tag-location': 2,
-        'react/jsx-first-prop-new-line': [2, 'multiline']
+        'react/jsx-first-prop-new-line': [2, 'multiline'],
+        'react/no-unknown-property': [2, { ignore: ['asscroll-container'] }]
     },
     ignorePatterns: [
         '**/setupProxy.js'

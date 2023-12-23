@@ -1,0 +1,7 @@
+@import '../../based';
+
+.section {
+    @extend %section;
+
+    background-color: $dark-blue;
+}

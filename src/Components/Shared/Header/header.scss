@@ -1,0 +1,52 @@
+@import "../../../based";
+
+$border: 1px solid rgba($white, 0.5);
+
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $header;
+    z-index: $header-z;
+
+    > .header {
+        height: $header;
+        border-bottom: $border;
+        transition: 0.3s ease-out background-color;
+    }
+
+    > .pillor {
+        position: absolute;
+        top: 0;
+        width: $header;
+        height: 100vh;
+        transition: 0.3s ease-out height;
+
+        &.left {
+            left: 0;
+            border-right: $border;
+        }
+
+        &.right {
+            right: 0;
+            border-left: $border;
+        }
+    }
+
+    &.active {
+        > .header {
+            background-color: rgba($white, 0.1);
+        }
+
+        > .pillor {
+            &.left {
+                height: $header;
+            }
+
+            &.right {
+                height: 0;
+            }
+        }
+    }
+}
