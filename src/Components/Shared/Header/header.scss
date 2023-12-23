@@ -53,6 +53,16 @@ $border: 1px solid rgba($white, 0.5);
     }
 
     > .header-menu {
+        overflow: hidden;
         margin: 0 $header;
+        width: 0;
+        background-color: $dark-blue;
+        opacity: 0;
+        transition: 0.3s;
+
+        &.active {
+            width: calc(100% - #{2 * $header});
+            opacity: 1;
+        }
     }
 }

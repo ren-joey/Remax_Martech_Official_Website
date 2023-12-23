@@ -9,12 +9,32 @@ $item-border: 1px dotted rgba($white, 0.3);
         background-color: $dark-blue;
 
         .menu-item {
+            @extend %button;
+
+            position: relative;
             padding: 1rem 2rem;
             font-size: 1.2rem;
             font-weight: bolder;
+            white-space: nowrap;
             color: $white;
             border-bottom: $item-border;
             text-transform: uppercase;
+
+            .hover-bg {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba($white, 0);
+                transition: 0.5s;
+            }
+
+            &:hover {
+                .hover-bg {
+                    background-color: rgba($white, 0.1);
+                }
+            }
         }
     }
 }

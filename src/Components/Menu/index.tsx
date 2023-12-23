@@ -27,9 +27,11 @@ const Menu = ({
                     options.map((opt) => (
                         <div
                             className="menu-item"
+                            onClick={opt.onClick}
                             key={opt.i18n}
                         >
                             { t(opt.i18n) }
+                            <div className="hover-bg"></div>
                         </div>
                     ))
                 }

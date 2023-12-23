@@ -16,6 +16,7 @@ const Header = ({ asscroll }: HeaderProps) => {
     const [pos, setPos] = useState(asscroll.currentPos);
     const { i18n } = useTranslation();
     const navigate = useNavigate();
+    const [menuState, setMenuState] = useState(false);
 
     const options: MenuOption[] = [
         {
@@ -82,17 +83,20 @@ const Header = ({ asscroll }: HeaderProps) => {
     }, []);
 
     return (
-        <div className={`header-container ${pos > 80 ? 'active' : ''}`}>
+        <div className={`header-container ${pos > 80 && menuState === false ? 'active' : ''}`}>
             <div className="pillor left"></div>
             <div className="header">
                 <div className="flex">
                     <div className="mr-auto">
-                        <MenuBtn />
+                        <MenuBtn
+                            onClickWhenClose={() => setMenuState(true)}
+                            onClickWhenOpen={() => setMenuState(false)}
+                        />
                     </div>
                     <LangBtn />
                 </div>
             </div>
-            <div className="header-menu">
+            <div className={`header-menu ${menuState ? 'active' : ''}`}>
                 <Menu options={options} />
             </div>
             <div className="pillor right"></div>
