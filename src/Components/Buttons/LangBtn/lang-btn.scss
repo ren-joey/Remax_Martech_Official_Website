@@ -1,0 +1,13 @@
+@import "../../../based";
+
+.lang {
+    @extend %button;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $header;
+    height: $header;
+    font-size: $header / 3;
+    color: $white;
+}

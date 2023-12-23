@@ -11,8 +11,10 @@ $border: 1px solid rgba($white, 0.5);
     z-index: $header-z;
 
     > .header {
+        position: relative;
         height: $header;
         border-bottom: $border;
+        z-index: $header-z + 1;
         transition: 0.3s ease-out background-color;
     }
 
@@ -45,8 +47,12 @@ $border: 1px solid rgba($white, 0.5);
             }
 
             &.right {
-                height: 0;
+                height: $header;
             }
         }
+    }
+
+    > .header-menu {
+        margin: 0 $header;
     }
 }

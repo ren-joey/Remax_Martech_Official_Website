@@ -1,0 +1,60 @@
+@import "../../../based";
+
+$bar: 14%;
+$gap: (100% - ($bar * 3)) / 2;
+
+.menu {
+    @extend %button;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $header;
+    height: $header;
+
+    .menu-icon-container {
+        position: relative;
+        width: $header / 3;
+        height: $header / 3.5;
+
+        > .bar {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: $bar;
+            background-color: $white;
+            pointer-events: none;
+            transform-origin: 0 0;
+            transition: 0.3s ease-out;
+
+            &.idx-1 {
+                top: 0;
+            }
+
+            &.idx-2 {
+                top: $bar + $gap;
+            }
+
+            &.idx-3 {
+                top: $bar * 2 + $gap * 2;
+            }
+        }
+
+        &.active {
+            > .bar {
+                &.idx-1 {
+                    transform: translate(20%, 20%) rotate(45deg);
+                }
+
+                &.idx-2 {
+                    width: 0;
+                    opacity: 0;
+                }
+
+                &.idx-3 {
+                    transform: translate(10%, 0) rotate(-45deg);
+                }
+            }
+        }
+    }
+}

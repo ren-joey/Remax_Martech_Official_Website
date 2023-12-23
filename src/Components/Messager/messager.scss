@@ -1,6 +1,8 @@
 @import "../../based";
 
 .messager-container {
+    @extend %button;
+
     position: fixed;
     right: 0;
     bottom: $header * 2;
