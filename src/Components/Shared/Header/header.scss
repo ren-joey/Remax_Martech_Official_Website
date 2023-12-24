@@ -19,7 +19,7 @@ $light-border: 1px solid rgba($blue, 0.3);
         transition: 0.3s ease-out background-color;
     }
 
-    > .pillor {
+    > .pillar {
         position: absolute;
         top: 0;
         width: $header;
@@ -42,7 +42,7 @@ $light-border: 1px solid rgba($blue, 0.3);
             background-color: rgba($white, 0.1);
         }
 
-        > .pillor {
+        > .pillar {
             &.left {
                 height: $header;
             }
@@ -73,7 +73,7 @@ $light-border: 1px solid rgba($blue, 0.3);
     //         border-bottom: $border;
     //     }
 
-    //     > .pillor {
+    //     > .pillar {
     //         &.left {
     //             border-right: $border;
     //         }
@@ -99,7 +99,7 @@ $light-border: 1px solid rgba($blue, 0.3);
             border-bottom: $light-border;
         }
 
-        > .pillor {
+        > .pillar {
             &.left {
                 border-right: $light-border;
             }

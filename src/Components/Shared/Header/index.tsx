@@ -96,7 +96,7 @@ const Header = ({
 
     return (
         <div className={`header-container ${pos > 80 && menuState === false ? 'active' : ''} ${theme}`}>
-            <div className="pillor left"></div>
+            <div className="pillar left"></div>
             <div className="header">
                 <div className="flex">
                     <div className="mr-auto">
@@ -115,7 +115,7 @@ const Header = ({
                     theme={theme}
                 />
             </div>
-            <div className="pillor right"></div>
+            <div className="pillar right"></div>
         </div>
     );
 };
