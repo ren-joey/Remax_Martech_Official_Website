@@ -58,33 +58,6 @@ const Section1 = () => {
                     {titles[0]}
                 </div>
                 <div className="split-line">
-                    <div className="circle-line">
-                        <svg viewBox="0 0 100 100">
-                            <mask id="circle-mask">
-                                <circle
-                                    className="circle-mask"
-                                    stroke="#fff"
-                                    strokeWidth="3"
-                                    fill="transparent"
-                                    cx="50"
-                                    cy="50"
-                                    r="46"
-                                />
-                            </mask>
-
-                            <circle
-                                stroke="#fff"
-                                strokeDasharray="0.1 0.4"
-                                strokeOpacity="0.8"
-                                strokeWidth="2"
-                                fill="transparent"
-                                cx="50"
-                                cy="50"
-                                r="46"
-                                mask="url(#circle-mask)"
-                            />
-                        </svg>
-                    </div>
                 </div>
                 <div className="section-content">
                     {titles[1]}
@@ -97,6 +70,37 @@ const Section1 = () => {
                     </div>
                 </div>
             </div>
+
+            <div className="circle-line">
+                <svg viewBox="0 0 100 100">
+                    <mask id="circle-mask">
+                        <circle
+                            className="circle-mask"
+                            stroke="#fff"
+                            strokeWidth="3"
+                            fill="transparent"
+                            cx="50"
+                            cy="50"
+                            r="46"
+                        />
+                    </mask>
+
+                    <circle
+                        stroke="#fff"
+                        strokeDasharray="0.1 0.4"
+                        strokeOpacity="0.8"
+                        strokeWidth="2"
+                        fill="transparent"
+                        cx="50"
+                        cy="50"
+                        r="46"
+                        mask="url(#circle-mask)"
+                    />
+                </svg>
+            </div>
+
+            <div className="cloud idx-1"></div>
+            <div className="cloud idx-2"></div>
         </div>
     );
 };

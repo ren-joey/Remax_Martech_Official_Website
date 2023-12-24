@@ -1,0 +1,136 @@
+@import "../../based";
+
+.section-2 {
+    position: relative;
+
+    .wrapper {
+        position: relative;
+        margin-left: $header * 2;
+        height: 100%;
+        z-index: $page;
+
+        .half {
+            position: relative;
+            height: 50%;
+
+            &.top {
+                display: flex;
+                justify-content: flex-end;
+                flex-direction: column;
+
+                .ship {
+                    position: absolute;
+                    right: 30%;
+                    bottom: -3%;
+                    width: 40vw;
+                    min-width: 400px;
+                    height: 40vw;
+                    min-height: 400px;
+                    background-image: url("../../assets/images/bg/ship.png");
+                    background-position: center bottom;
+                    background-repeat: no-repeat;
+                    background-size: 100% auto;
+                    animation: ship-move 120s linear;
+                }
+            }
+
+            .logo-area {
+                width: 430px;
+            }
+
+            .title {
+                font-size: 4rem;
+                font-weight: bolder;
+                white-space: pre-line;
+                line-height: 4rem;
+                color: $white;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+
+            .desc {
+                font-size: 2rem;
+                white-space: pre-line;
+                line-height: 2.4rem;
+                color: $white;
+                letter-spacing: 1px;
+            }
+        }
+    }
+
+    .wave-1 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-image: url("../../assets/images/bg/section-2-ocean-surface-effect.png");
+        background-position: center bottom 50px;
+        background-repeat: no-repeat;
+        transform: scaleX(-1);
+        animation: wave-down 5s linear infinite;
+    }
+
+    .wave-2 {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-image: url("../../assets/images/bg/section-2-ocean-surface-effect-2.png");
+        background-position: 90px top;
+        background-repeat: no-repeat;
+        transform: scaleX(-1);
+        animation: wave-right 3s linear infinite;
+    }
+}
+
+@keyframes ship-move {
+    0% {
+        right: 0;
+    }
+
+    100% {
+        right: 30%;
+    }
+}
+
+@keyframes wave-down {
+    0% {
+        background-position: center bottom 50px;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        background-position: center bottom -50px;
+        opacity: 0;
+    }
+}
+
+@keyframes wave-right {
+    0% {
+        background-position: 90px top;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        background-position: 130px top;
+        opacity: 0;
+    }
+}

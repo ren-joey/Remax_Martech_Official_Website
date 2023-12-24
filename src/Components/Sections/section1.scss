@@ -4,11 +4,14 @@ $border: 1px solid rgba($white, 0.5);
 $circle: 120vh;
 
 .section-1 {
+    position: relative;
+    overflow: visible;
     background-position: center center;
     background-size: auto 120%;
     transition: 5s ease-out background-size;
 
     .section-container {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -80,26 +83,67 @@ $circle: 120vh;
             height: 1px;
             border-bottom: $border;
             animation: width-grow 5s ease-in-out;
+        }
+    }
 
-            .circle-line {
-                position: absolute;
-                top: -#{$circle / 2};
-                left: calc(50% - #{$circle} / 2);
-                width: $circle;
-                height: $circle;
-                transform: rotate(180deg);
+    .circle-line {
+        position: absolute;
+        top: calc(50% - #{$circle} / 2 - $header);
+        left: calc(50% - #{$circle} / 2);
+        width: $circle;
+        height: $circle;
+        transform: rotate(180deg);
 
-                .circle-mask {
-                    animation: draw-svg 8s linear;
-                }
-            }
+        .circle-mask {
+            animation: draw-svg 8s linear;
+        }
+    }
+
+    .cloud {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vw;
+        background-image: url("../../assets/images/bg/section-1-to-2-effect.png");
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition:
+            5s opacity,
+            15s background-position linear,
+            15s background-size linear;
+
+        &.idx-1 {
+            background-position: 70% 50%;
+            background-size: 38% 38%;
+        }
+
+        &.idx-2 {
+            background-position: 100% 20%;
+            background-size: 50% 50%;
+            transform: scaleX(-1);
         }
     }
 
     &.active {
         background-size: auto 100%;
 
+        .cloud {
+            opacity: 1;
+
+            &.idx-1 {
+                background-position: 150% 30%;
+                background-size: 60% 50%;
+            }
+
+            &.idx-2 {
+                background-position: 300% 50%;
+                background-size: 90% 40%;
+            }
+        }
+
         .section-container {
+            overflow-x: hidden;
             background-color: rgba($white, 0);
 
             .logo-area {
@@ -123,14 +167,14 @@ $circle: 120vh;
 
             .split-line {
                 animation: none;
+            }
+        }
 
-                .circle-line {
-                    animation: rotate 100s linear 6s;
+        .circle-line {
+            animation: rotate 100s linear 6s;
 
-                    .circle-mask {
-                        animation: none;
-                    }
-                }
+            .circle-mask {
+                animation: none;
             }
         }
     }
