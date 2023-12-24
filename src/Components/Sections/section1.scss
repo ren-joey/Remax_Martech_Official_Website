@@ -1,0 +1,194 @@
+@import "../../based";
+
+$border: 1px solid rgba($white, 0.5);
+$circle: 120vh;
+
+.section-1 {
+    background-position: center center;
+    background-size: auto 120%;
+    transition: 5s ease-out background-size;
+
+    .section-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba($white, 0.5);
+        transition: 3s background-color;
+
+        .section-content {
+            position: relative;
+            font-size: 4rem;
+            font-weight: bolder;
+            white-space: pre-line;
+            color: $logo-blue;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 2s color;
+
+            .loading-progress {
+                position: absolute;
+                top: 8rem;
+                left: calc(50% - 1rem);
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.6rem;
+                font-weight: normal;
+                text-align: center;
+                line-height: 2rem;
+                color: $logo-blue;
+                border: 1px solid $logo-blue;
+                border-radius: 2rem;
+                transition: 3s opacity;
+            }
+
+            .scroll-icon {
+                position: absolute;
+                top: 8rem;
+                left: calc(50% - 1.5rem);
+                width: 3rem;
+                height: 3rem;
+                background-image: url("../../assets/images/icon/scroll-down-white.svg");
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: auto 100%;
+                opacity: 0;
+                transition: 3s opacity 2s;
+            }
+        }
+
+        .logo-area {
+            display: flex;
+            width: 600px;
+
+            .active-logo {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                opacity: 0;
+                transition: 2s opacity;
+            }
+        }
+
+        .split-line {
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+            height: 1px;
+            border-bottom: $border;
+            animation: width-grow 5s ease-in-out;
+
+            .circle-line {
+                position: absolute;
+                top: -#{$circle / 2};
+                left: calc(50% - #{$circle} / 2);
+                width: $circle;
+                height: $circle;
+                transform: rotate(180deg);
+
+                .circle-mask {
+                    animation: draw-svg 8s linear;
+                }
+            }
+        }
+    }
+
+    &.active {
+        background-size: auto 100%;
+
+        .section-container {
+            background-color: rgba($white, 0);
+
+            .logo-area {
+                .active-logo {
+                    opacity: 1;
+                }
+            }
+
+            .section-content {
+                color: $white;
+
+                .loading-progress {
+                    opacity: 0;
+                }
+
+                .scroll-icon {
+                    opacity: 1;
+                    animation: scroll-down 5s linear infinite;
+                }
+            }
+
+            .split-line {
+                animation: none;
+
+                .circle-line {
+                    animation: rotate 100s linear 6s;
+
+                    .circle-mask {
+                        animation: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes width-grow {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes draw-svg {
+    0% {
+        stroke-dasharray: 330;
+        stroke-dashoffset: 330;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(180);
+    }
+
+    100% {
+        transform: rotate(544deg);
+    }
+}
+
+@keyframes scroll-down {
+    0% {
+        transform: translateY(0%);
+    }
+
+    5% {
+        transform: translateY(20%);
+    }
+
+    10% {
+        transform: translateY(0%);
+    }
+
+    15% {
+        transform: translateY(20%);
+    }
+
+    20% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}

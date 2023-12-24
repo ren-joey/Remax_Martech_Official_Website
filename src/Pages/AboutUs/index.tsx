@@ -21,7 +21,7 @@ const Service = () => {
                         <div className="flex mb-20">
                             <RectBtn
                                 text={t('back_page')}
-                                onClick={() => navigate(-1)}
+                                onClick={() => navigate('/')}
                             />
                             <div className="content pl-12">
                                 <div className="deco-bar mb-4"></div>

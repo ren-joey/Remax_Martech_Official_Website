@@ -1,0 +1,30 @@
+.logo {
+    padding-bottom: calc(100% / 400 * 120);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+    &.remax {
+        background-position: center bottom 10px;
+
+        &.white {
+            background-image: url("../../assets/images/logo/remax_white.png");
+        }
+
+        &.blue {
+            background-image: url("../../assets/images/logo/remax_blue.png");
+        }
+    }
+
+    &.martech {
+        background-position: center bottom;
+
+        &.white {
+            background-image: url("../../assets/images/logo/martech_white.png");
+        }
+
+        &.blue {
+            background-image: url("../../assets/images/logo/martech_blue.png");
+        }
+    }
+}

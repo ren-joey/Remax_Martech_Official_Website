@@ -1,13 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import './menu.scss';
 import { Theme } from '../Shared/Header';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 export interface MenuOption {
     i18n: string,
     name: string,
     subMenu?: MenuOption[],
-    onClick: () => void
+    pathname: string
 }
 
 interface MenuProps {
@@ -21,6 +22,8 @@ const Menu = ({
     theme='dark'
 }: MenuProps) => {
     const { t } = useTranslation();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     return (
         <div
@@ -31,8 +34,8 @@ const Menu = ({
                 {
                     options.map((opt) => (
                         <div
-                            className="menu-item"
-                            onClick={opt.onClick}
+                            className={`menu-item ${location.pathname === opt.pathname ? 'active' : ''}`}
+                            onClick={() => navigate(opt.pathname)}
                             key={opt.i18n}
                         >
                             { t(opt.i18n) }

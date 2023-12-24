@@ -31,10 +31,16 @@ $light-item-border: 1px dotted rgba($blue, 0.3);
                 transition: 0.5s;
             }
 
-            &:hover {
+            &:hover,
+            &.active {
                 .hover-bg {
                     background-color: rgba($white, 0.1);
                 }
+            }
+
+            &.active {
+                cursor: default;
+                pointer-events: none;
             }
         }
     }
@@ -65,17 +71,23 @@ $light-item-border: 1px dotted rgba($blue, 0.3);
             background-color: $white;
 
             .menu-item {
-                color: $dark-blue;
+                color: $logo-blue;
                 border-bottom: $light-item-border;
 
                 .hover-bg {
                     background-color: rgba($blue, 0);
                 }
 
-                &:hover {
+                &:hover,
+                &.active {
                     .hover-bg {
                         background-color: rgba($blue, 0.1);
                     }
+                }
+
+                &.active {
+                    cursor: default;
+                    pointer-events: none;
                 }
             }
         }

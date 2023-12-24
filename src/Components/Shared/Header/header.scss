@@ -1,6 +1,7 @@
 @import "../../../based";
 
 $border: 1px solid rgba($white, 0.5);
+$border-active: 1px solid rgba($logo-blue, 1);
 $light-border: 1px solid rgba($blue, 0.3);
 
 .header-container {
@@ -16,7 +17,7 @@ $light-border: 1px solid rgba($blue, 0.3);
         height: $header;
         border-bottom: $border;
         z-index: $header-z + 1;
-        transition: 0.3s ease-out background-color;
+        transition: 0.3s ease-out background-color, 0.5s ease-out border;
     }
 
     > .pillar {
@@ -24,7 +25,9 @@ $light-border: 1px solid rgba($blue, 0.3);
         top: 0;
         width: $header;
         height: 100vh;
-        transition: 0.3s ease-out height;
+        z-index: $header-z + 2;
+        transition: 0.3s ease-out height, 0.5s ease-out border;
+        pointer-events: none;
 
         &.left {
             left: 0;
@@ -39,16 +42,23 @@ $light-border: 1px solid rgba($blue, 0.3);
 
     &.active {
         > .header {
-            background-color: rgba($white, 0.1);
+            background-color: rgba($dark-blue, 0.6);
+            backdrop-filter: blur(5px);
+
+            // border-bottom: $border-active;
         }
 
         > .pillar {
             &.left {
                 height: $header;
+
+                // border-right: $border-active;
             }
 
             &.right {
                 height: $header;
+
+                // border-left: $border-active;
             }
         }
     }
@@ -97,6 +107,7 @@ $light-border: 1px solid rgba($blue, 0.3);
     &.light {
         > .header {
             border-bottom: $light-border;
+            backdrop-filter: blur(5px);
         }
 
         > .pillar {

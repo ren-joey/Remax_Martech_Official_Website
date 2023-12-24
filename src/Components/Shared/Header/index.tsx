@@ -28,57 +28,57 @@ const Header = ({
         {
             i18n: 'home',
             name: 'Home',
-            onClick: () => navigate('/')
+            pathname: '/'
         },
         {
             i18n: 'about_us_title',
             name: 'About Us',
-            onClick: () => navigate('/about-us')
+            pathname: '/about-us'
         },
         {
             i18n: 'service_1_title',
             name: 'HOT WORK',
-            onClick: () => navigate('/service/1')
+            pathname: '/service/1'
         },
         {
             i18n: 'service_2_title',
             name: 'MAIN ENGINE OVERHAUL & GENERATOR OVERHAUL',
-            onClick: () => navigate('/service/2')
+            pathname: '/service/2'
         },
         {
             i18n: 'service_3_title',
             name: 'ELECTRIC MOTOR & GENERATOR REPAIRING',
-            onClick: () => navigate('/service/3')
+            pathname: '/service/3'
         },
         {
             i18n: 'service_4_title',
             name: 'HYDRAULIC MOTOR REPAIRING',
-            onClick: () => navigate('/service/4')
+            pathname: '/service/4'
         },
         {
             i18n: 'service_5_title',
             name: 'MACHINERY MAINTENANCE & REPAIRING',
-            onClick: () => navigate('/service/5')
+            pathname: '/service/5'
         },
         {
             i18n: 'service_6_title',
             name: 'CRANE LOAD TEST(LOAD CELL & WATER BAG)',
-            onClick: () => navigate('/service/6')
+            pathname: '/service/6'
         },
         {
             i18n: 'service_7_title',
             name: 'NONDESTRUCTIVE-TESTING',
-            onClick: () => navigate('/service/7')
+            pathname: '/service/7'
         },
         {
             i18n: 'service_8_title',
             name: 'UNDER-WATER SERVICES',
-            onClick: () => navigate('/service/8')
+            pathname: '/service/8'
         },
         {
             i18n: 'service_9_title',
             name: 'STORE & MEAL SUPPLY',
-            onClick: () => navigate('/service/9')
+            pathname: '/service/9'
         }
     ];
 
