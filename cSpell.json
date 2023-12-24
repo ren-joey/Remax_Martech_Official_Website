@@ -5,6 +5,8 @@
         "stylelint",
         "remax",
         "martech",
-        "tailwindcss"
+        "tailwindcss",
+        "asscroll",
+        "ashthornton"
     ]
 }
