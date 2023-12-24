@@ -1,7 +1,39 @@
-@import '../../based';
+@import "../../based";
 
 .section {
     @extend %section;
 
     background-color: $dark-blue;
+
+    &.section-1 {
+        background-image: url("../../assets/images/bg/section-1-sky.png");
+    }
+
+    &.section-1-to-2 {
+        background-image: url("../../assets/images/bg/section-1-to-2.png");
+    }
+
+    &.section-2 {
+        background-image: url("../../assets/images/bg/section-2-ocean-surface.png");
+    }
+
+    &.section-2-to-3 {
+        background-image: url("../../assets/images/bg/section-2-to-3.png");
+    }
+
+    &.section-3 {
+        background-image: url("../../assets/images/bg/section-3-under-water.png");
+    }
+
+    &.section-3-to-4 {
+        background-image: url("../../assets/images/bg/section-3-to-4.png");
+    }
+
+    &.section-4 {
+        background-image: url("../../assets/images/bg/section-4-taiwan.png");
+    }
+
+    &.section-4-to-5 {
+        background-image: url("../../assets/images/bg/section-4-to-5.png");
+    }
 }
