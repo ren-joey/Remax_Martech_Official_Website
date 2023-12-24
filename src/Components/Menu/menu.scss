@@ -1,6 +1,7 @@
 @import "../../based";
 
 $item-border: 1px dotted rgba($white, 0.3);
+$light-item-border: 1px dotted rgba($blue, 0.3);
 
 #menu {
     .menu-container {
@@ -33,6 +34,48 @@ $item-border: 1px dotted rgba($white, 0.3);
             &:hover {
                 .hover-bg {
                     background-color: rgba($white, 0.1);
+                }
+            }
+        }
+    }
+
+    // &.dark {
+    //     .menu-container {
+    //         background-color: $dark-blue;
+
+    //         .menu-item {
+    //             color: $white;
+    //             border-bottom: $item-border;
+
+    //             .hover-bg {
+    //                 background-color: rgba($white, 0);
+    //             }
+
+    //             &:hover {
+    //                 .hover-bg {
+    //                     background-color: rgba($white, 0.1);
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
+    &.light {
+        .menu-container {
+            background-color: $white;
+
+            .menu-item {
+                color: $dark-blue;
+                border-bottom: $light-item-border;
+
+                .hover-bg {
+                    background-color: rgba($blue, 0);
+                }
+
+                &:hover {
+                    .hover-bg {
+                        background-color: rgba($blue, 0.1);
+                    }
                 }
             }
         }

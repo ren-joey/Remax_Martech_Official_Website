@@ -1,6 +1,6 @@
 @import "../../../based";
 
-.lang {
+#lang {
     @extend %button;
 
     display: flex;
@@ -9,5 +9,12 @@
     width: $header;
     height: $header;
     font-size: $header / 3;
-    color: $white;
+
+    &.dark {
+        color: $white;
+    }
+
+    &.light {
+        color: $blue;
+    }
 }

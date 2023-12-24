@@ -7,18 +7,29 @@ import MenuBtn from '../../Buttons/MenuBtn';
 import Menu, { MenuOption } from '../../Menu';
 import { useNavigate } from 'react-router-dom';
 
+export type Theme = 'light'|'dark';
+
 interface HeaderProps {
-    asscroll: ASScroll
+    asscroll?: ASScroll|null,
+    theme?: Theme
 }
 
 
-const Header = ({ asscroll }: HeaderProps) => {
-    const [pos, setPos] = useState(asscroll.currentPos);
+const Header = ({
+    asscroll=null,
+    theme='dark'
+}: HeaderProps) => {
+    const [pos, setPos] = useState(asscroll?.currentPos || window.scrollY);
     const { i18n } = useTranslation();
     const navigate = useNavigate();
     const [menuState, setMenuState] = useState(false);
 
     const options: MenuOption[] = [
+        {
+            i18n: 'home',
+            name: 'Home',
+            onClick: () => navigate('/')
+        },
         {
             i18n: 'about_us_title',
             name: 'About Us',
@@ -74,7 +85,8 @@ const Header = ({ asscroll }: HeaderProps) => {
     useEffect(() => {
         const interval = setInterval(() => {
             setPos((p) => {
-                if (p !== asscroll.currentPos) return asscroll.currentPos;
+                const currentPos = asscroll?.currentPos || window.scrollY;
+                if (p !== currentPos) return currentPos;
                 return p;
             });
         }, 200);
@@ -83,7 +95,7 @@ const Header = ({ asscroll }: HeaderProps) => {
     }, []);
 
     return (
-        <div className={`header-container ${pos > 80 && menuState === false ? 'active' : ''}`}>
+        <div className={`header-container ${pos > 80 && menuState === false ? 'active' : ''} ${theme}`}>
             <div className="pillor left"></div>
             <div className="header">
                 <div className="flex">
@@ -91,13 +103,17 @@ const Header = ({ asscroll }: HeaderProps) => {
                         <MenuBtn
                             onClickWhenClose={() => setMenuState(true)}
                             onClickWhenOpen={() => setMenuState(false)}
+                            theme={theme}
                         />
                     </div>
-                    <LangBtn />
+                    <LangBtn theme={theme} />
                 </div>
             </div>
             <div className={`header-menu ${menuState ? 'active' : ''}`}>
-                <Menu options={options} />
+                <Menu
+                    options={options}
+                    theme={theme}
+                />
             </div>
             <div className="pillor right"></div>
         </div>

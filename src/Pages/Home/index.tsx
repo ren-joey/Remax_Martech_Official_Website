@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 import './home.scss';
 import ASScroll from '@ashthornton/asscroll';
 import Wrapper from '../../Components/Shared/Wrapper';
@@ -10,22 +9,20 @@ import Section4 from '../../Components/Sections/section4';
 import Section5 from '../../Components/Sections/section5';
 
 const Home = () => {
-    const { t, i18n } = useTranslation();
-    // const ref = useRef<HTMLDivElement>(null);
-    // const { asscroll } = useASScroll(ref);
     const [asscroll, setAsscroll] = useState<ASScroll|null>(null);
 
+    // useEffect(() => {
+    //     let asscroll: undefined|ASScroll = undefined;
+    //     if (asscroll === null) {
+    //         asscroll = new ASScroll();
+    //         asscroll.enable();
+    //         setAsscroll(asscroll);
+    //     }
 
-    useEffect(() => {
-        const lng = navigator.language;
-        i18n.changeLanguage(lng);
-
-        if (asscroll === null) {
-            const asscroll = new ASScroll();
-            asscroll.enable();
-            setAsscroll(asscroll);
-        }
-    }, []);
+    //     return () => {
+    //         if (asscroll) asscroll.disable();
+    //     };
+    // }, []);
 
     return (
         <Wrapper asscroll={asscroll}>

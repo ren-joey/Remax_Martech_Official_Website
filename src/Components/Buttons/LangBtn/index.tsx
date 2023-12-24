@@ -1,7 +1,16 @@
 import { useTranslation } from 'react-i18next';
+import { Theme } from '../../Shared/Header';
 import './lang-btn.scss';
 
-const LangBtn = () => {
+interface LangBtnProps {
+    onClickWhenClose?: () => void,
+    onClickWhenOpen?: () => void,
+    theme?: Theme
+}
+
+const LangBtn = ({
+    theme='dark'
+}: LangBtnProps) => {
     const { i18n } = useTranslation();
 
     const text = () => {
@@ -34,7 +43,8 @@ const LangBtn = () => {
 
     return (
         <div
-            className="lang"
+            id="lang"
+            className={theme}
             onClick={toggleLang}
         >
             {text()}

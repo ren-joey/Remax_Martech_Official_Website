@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import './menu-btn.scss';
+import { Theme } from '../../Shared/Header';
 
 interface MenuBtnProps {
     onClickWhenClose?: () => void,
-    onClickWhenOpen?: () => void
+    onClickWhenOpen?: () => void,
+    theme?: Theme
 }
 
 const MenuBtn = ({
     onClickWhenClose=() => {},
-    onClickWhenOpen=() => {}
+    onClickWhenOpen=() => {},
+    theme='dark'
 }: MenuBtnProps) => {
     const [state, setState] = useState(false);
 
@@ -23,7 +26,8 @@ const MenuBtn = ({
 
     return (
         <div
-            className="menu"
+            id="menu-btn"
+            className={theme}
             onClick={onClick}
         >
             <div className={`menu-icon-container ${state ? 'active' : ''}`}>

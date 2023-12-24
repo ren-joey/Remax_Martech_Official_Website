@@ -1,5 +1,7 @@
 {
     "translation": {
+        "home": "首頁",
+
         "section_1_title": "Remax International\nMartech Engineering",
         "section_2_title": "Remax\nMartech",
         "section_2_subtitle": "Ship maintenance\nDeveloping Exceptional Solutions",
@@ -120,6 +122,7 @@
         "about_us_img_2": "成果2",
         "about_us_img_3": "成果3",
         "about_us_img_4": "成果4",
+        "back_page": "回上一頁",
 
         "service_1_title": "動火作業",
         "service_1_subtitle": "",

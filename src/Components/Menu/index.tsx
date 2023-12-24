@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import './menu.scss';
+import { Theme } from '../Shared/Header';
 
 
 export interface MenuOption {
@@ -10,18 +11,22 @@ export interface MenuOption {
 }
 
 interface MenuProps {
-    options?: MenuOption[]
+    options?: MenuOption[],
+    theme?: Theme
 }
 
 
-
 const Menu = ({
-    options=[]
+    options=[],
+    theme='dark'
 }: MenuProps) => {
     const { t } = useTranslation();
 
     return (
-        <div id="menu">
+        <div
+            id="menu"
+            className={theme}
+        >
             <div className="menu-container">
                 {
                     options.map((opt) => (

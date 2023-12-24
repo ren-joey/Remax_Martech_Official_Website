@@ -1,0 +1,39 @@
+@import "../../based";
+
+$banner: 268px;
+$deco-bar-w: 100px;
+$deco-bar-h: 5px;
+
+#about-us {
+    .service-container {
+        .banner {
+            height: $banner;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            width: 1280px;
+
+            .content {
+                white-space: pre-line;
+
+                .deco-bar {
+                    width: $deco-bar-w;
+                    height: $deco-bar-h;
+                    background-color: $blue;
+                }
+
+                .title {
+                    font-size: 2rem;
+                    font-weight: bolder;
+                }
+            }
+
+            .imgs-container {
+                display: grid;
+                column-gap: 2rem;
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+    }
+}

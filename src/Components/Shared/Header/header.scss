@@ -1,6 +1,7 @@
 @import "../../../based";
 
 $border: 1px solid rgba($white, 0.5);
+$light-border: 1px solid rgba($blue, 0.3);
 
 .header-container {
     position: fixed;
@@ -56,6 +57,7 @@ $border: 1px solid rgba($white, 0.5);
         overflow: hidden;
         margin: 0 $header;
         width: 0;
+        height: calc(100vh - $header);
         background-color: $dark-blue;
         opacity: 0;
         transition: 0.3s;
@@ -63,6 +65,58 @@ $border: 1px solid rgba($white, 0.5);
         &.active {
             width: calc(100% - #{2 * $header});
             opacity: 1;
+        }
+    }
+
+    // &.dark {
+    //     > .header {
+    //         border-bottom: $border;
+    //     }
+
+    //     > .pillor {
+    //         &.left {
+    //             border-right: $border;
+    //         }
+
+    //         &.right {
+    //             border-left: $border;
+    //         }
+    //     }
+
+    //     &.active {
+    //         > .header {
+    //             background-color: rgba($white, 0.1);
+    //         }
+    //     }
+
+    //     > .header-menu {
+    //         background-color: $dark-blue;
+    //     }
+    // }
+
+    &.light {
+        > .header {
+            border-bottom: $light-border;
+        }
+
+        > .pillor {
+            &.left {
+                border-right: $light-border;
+            }
+
+            &.right {
+                border-left: $light-border;
+            }
+        }
+
+        &.active {
+            > .header {
+                background-color: rgba($blue, 0.1);
+            }
+        }
+
+        > .header-menu {
+            background-color: $white;
         }
     }
 }

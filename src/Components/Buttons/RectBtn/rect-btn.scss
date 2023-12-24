@@ -1,0 +1,12 @@
+@import "../../../based";
+
+#rect-btn {
+    .rect-btn-container {
+        @extend %button;
+
+        padding: 0.5rem 1.4rem;
+        white-space: nowrap;
+        color: $white;
+        background-color: $blue;
+    }
+}

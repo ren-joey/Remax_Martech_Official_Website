@@ -1,20 +1,28 @@
 import ASScroll from '@ashthornton/asscroll';
 import Messager from '../Messager';
 import { useEffect } from 'react';
-import Header from './Header';
+import Header, { Theme } from './Header';
+
+
 
 interface WrapperProps {
     children: JSX.Element,
-    asscroll: ASScroll|null
+    asscroll?: ASScroll|null,
+    theme?: Theme
 }
 
-const Wrapper = ({ children, asscroll }: WrapperProps) => {
+const Wrapper = ({
+    children,
+    theme='dark',
+    asscroll=null
+}: WrapperProps) => {
 
     return (
         <div className="wrapper">
-            { asscroll !== null ? (
-                <Header asscroll={asscroll} />
-            ) : ''}
+            <Header
+                asscroll={asscroll}
+                theme={theme}
+            />
             { children }
             <Messager />
         </div>

@@ -3,7 +3,7 @@
 $bar: 14%;
 $gap: (100% - ($bar * 3)) / 2;
 
-.menu {
+#menu-btn {
     @extend %button;
 
     display: flex;
@@ -54,6 +54,22 @@ $gap: (100% - ($bar * 3)) / 2;
                 &.idx-3 {
                     transform: translate(10%, 0) rotate(-45deg);
                 }
+            }
+        }
+    }
+
+    // &.dark {
+    //     .menu-icon-container {
+    //         > .bar {
+    //             background-color: $white;
+    //         }
+    //     }
+    // }
+
+    &.light {
+        .menu-icon-container {
+            > .bar {
+                background-color: $blue;
             }
         }
     }

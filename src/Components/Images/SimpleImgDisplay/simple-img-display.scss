@@ -1,0 +1,16 @@
+@import "../../../based";
+
+#simple-img-display {
+    .img-container {
+        padding-bottom: calc(100% / 300 * 220);
+        width: 100%;
+        background-position: center center;
+        background-size: cover;
+        background-color: #000;
+    }
+
+    .desc {
+        text-align: center;
+        color: $grey;
+    }
+}
