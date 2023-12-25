@@ -1,29 +1,27 @@
-import { useEffect, useState } from 'react';
+import { MutableRefObject, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './header.scss';
-import ASScroll from '@ashthornton/asscroll';
 import LangBtn from '../../Buttons/LangBtn';
 import MenuBtn from '../../Buttons/MenuBtn';
 import Menu, { MenuOption } from '../../Menu';
 import { useNavigate } from 'react-router-dom';
 import Martech from '../../Logos/Martech';
 import Remax from '../../Logos/Remax';
+import LocomotiveScroll from 'locomotive-scroll';
 
 export type Theme = 'light'|'dark';
 
 interface HeaderProps {
-    asscroll?: ASScroll|null,
+    pos: number,
+    scroller?: LocomotiveScroll|null,
     theme?: Theme
 }
 
-
 const Header = ({
-    asscroll=null,
-    theme='dark'
+    theme='dark',
+    pos,
+    scroller
 }: HeaderProps) => {
-    const [pos, setPos] = useState(asscroll?.currentPos || window.scrollY);
-    const { i18n } = useTranslation();
-    const navigate = useNavigate();
     const [menuState, setMenuState] = useState(false);
 
     const options: MenuOption[] = [
@@ -83,18 +81,6 @@ const Header = ({
             pathname: '/service/9'
         }
     ];
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setPos((p) => {
-                const currentPos = asscroll?.currentPos || window.scrollY;
-                if (p !== currentPos) return currentPos;
-                return p;
-            });
-        }, 200);
-
-        return () => clearInterval(interval);
-    }, []);
 
     return (
         <div className={`header-container ${pos > 80 && menuState === false ? 'active' : ''} ${theme}`}>

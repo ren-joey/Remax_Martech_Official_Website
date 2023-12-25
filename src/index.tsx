@@ -6,10 +6,10 @@ import GlobDataProvider from './Context/GlobDataProvider';
 import './index.css';
 import './i18n';
 import gsap from 'gsap';
-import { ScrollToPlugin } from 'gsap/all';
+import { ScrollToPlugin, ScrollTrigger } from 'gsap/all';
 
 
-gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

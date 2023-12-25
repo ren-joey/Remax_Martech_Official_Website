@@ -3,8 +3,15 @@ import './footer.scss';
 import Martech from '../../Logos/Martech';
 import Remax from '../../Logos/Remax';
 import gsap from 'gsap';
+import LocomotiveScroll from 'locomotive-scroll';
 
-const Footer = () => {
+interface FooterProps {
+    scroller: LocomotiveScroll|null
+}
+
+const Footer = ({
+    scroller
+}: FooterProps) => {
     const { t } = useTranslation();
 
     return (
@@ -16,19 +23,19 @@ const Footer = () => {
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: 2960 + 100 })}
+                        onClick={() => scroller?.scrollTo(2960 + 100)}
                     >
                         {t('footer_col_1_nav_1')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: 4238 + 100 })}
+                        onClick={() => scroller?.scrollTo(4238 + 100)}
                     >
                         {t('footer_col_1_nav_2')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: 6191 - 100 })}
+                        onClick={() => scroller?.scrollTo(6191 - 100)}
                     >
                         {t('footer_col_1_nav_3')}
                     </div>
@@ -39,59 +46,62 @@ const Footer = () => {
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: { y: '#service_slider_1', offsetY: 200 } })}
+                        onClick={() => scroller?.scrollTo('#service_slider_1', { offset: -100 })}
                     >
                         {t('footer_col_2_nav_1')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: { y: '#service_slider_2', offsetY: 200 } })}
+                        onClick={() => scroller?.scrollTo('#service_slider_2', { offset: -100 })}
                     >
                         {t('footer_col_2_nav_2')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: { y: '#service_slider_3', offsetY: 200 } })}
+                        onClick={() => scroller?.scrollTo('#service_slider_3', { offset: -100 })}
                     >
                         {t('footer_col_2_nav_3')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: { y: '#service_slider_4', offsetY: 200 } })}
+                        onClick={() => scroller?.scrollTo('#service_slider_4', { offset: -100 })}
                     >
                         {t('footer_col_2_nav_4')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: { y: '#service_slider_5', offsetY: 200 } })}
+                        onClick={() => scroller?.scrollTo('#service_slider_5', { offset: -100 })}
                     >
                         {t('footer_col_2_nav_5')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: { y: '#service_slider_6', offsetY: 200 } })}
+                        onClick={() => scroller?.scrollTo('#service_slider_6', { offset: -100 })}
                     >
                         {t('footer_col_2_nav_6')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: { y: '#service_slider_7', offsetY: 200 } })}
+                        onClick={() => scroller?.scrollTo('#service_slider_7', { offset: -100 })}
                     >
                         {t('footer_col_2_nav_7')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: { y: '#service_slider_8', offsetY: 200 } })}
+                        onClick={() => scroller?.scrollTo('#service_slider_8', { offset: -100 })}
                     >
                         {t('footer_col_2_nav_8')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => gsap.to(window, { duration: 1, scrollTo: { y: '#service_slider_9', offsetY: 200 } })}
+                        onClick={() => scroller?.scrollTo('#service_slider_9', { offset: -100 })}
                     >
                         {t('footer_col_2_nav_9')}
                     </div>
-                    <div className="nav-item clickable">
+                    <div
+                        className="nav-item clickable"
+                        onClick={() => scroller?.scrollTo('#service_slider_9', { offset: -100 })}
+                    >
                         {t('footer_col_2_nav_10')}
                     </div>
                 </div>
