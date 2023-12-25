@@ -1,0 +1,80 @@
+@import "../../based";
+
+.section-4 {
+    height: 100%;
+
+    .wrapper {
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .half {
+        position: relative;
+        width: 50%;
+        height: 100%;
+
+        &.left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: bolder;
+            text-align: right;
+            white-space: pre-line;
+            line-height: 4rem;
+            color: $white;
+            letter-spacing: bolder;
+            text-transform: uppercase;
+        }
+
+        .slide-show {
+            margin-right: -20%;
+            width: 120%;
+        }
+
+        .port {
+            position: absolute;
+
+            &.taipei {
+                top: 31%;
+                left: 475px;
+            }
+
+            // &.taoyuan {
+            //     top: 23%;
+            //     left: 52%;
+            // }
+
+            &.keelung {
+                top: 25%;
+                left: 500px;
+            }
+
+            &.taichung {
+                top: 42%;
+                left: 360px;
+            }
+
+            &.suao {
+                top: 40%;
+                left: 570px;
+            }
+
+            &.anping {
+                top: 53%;
+                left: 285px;
+            }
+
+            &.kaoshiung {
+                top: 68%;
+                left: 260px;
+            }
+        }
+    }
+}
