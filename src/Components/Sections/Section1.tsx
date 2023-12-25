@@ -16,8 +16,11 @@ const Section1 = () => {
     const [prog, setProg] = useState(0);
 
     useEffect(() => {
+        // [DEV]
+        localStorage.removeItem(localStorageKey);
+
         window.scrollTo(0, 0);
-        if (localStorage.getItem(localStorageKey) == '1') {
+        if (localStorage.getItem(localStorageKey) === '1') {
             setProg(100);
         } else {
             const val = {prog: 0};

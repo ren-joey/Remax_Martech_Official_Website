@@ -9,6 +9,15 @@
     user-select: none;
 }
 
+@mixin title($size: 4rem, $spacing: 2px, $color: #fff) {
+    font-size: $size;
+    font-weight: bolder;
+    white-space: pre-line;
+    color: $color;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
 // Small devices
 @mixin sm {
     @media (max-width: #{$screen-sm-min}) {

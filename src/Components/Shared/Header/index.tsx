@@ -102,16 +102,17 @@ const Header = ({
             <div className="header">
                 <div className="flex items-center">
                     <MenuBtn
+                        state={menuState}
                         onClickWhenClose={() => setMenuState(true)}
                         onClickWhenOpen={() => setMenuState(false)}
                         theme={theme}
                     />
                     <div className="mx-auto flex">
                         <div className="logo-container">
-                            <Martech />
+                            <Martech color={theme === 'dark' ? 'white' : 'blue'} />
                         </div>
                         <div className="logo-container pt-1">
-                            <Remax />
+                            <Remax color={theme === 'dark' ? 'white' : 'blue'} />
                         </div>
                     </div>
                     <LangBtn theme={theme} />
@@ -119,6 +120,7 @@ const Header = ({
             </div>
             <div className={`header-menu ${menuState ? 'active' : ''}`}>
                 <Menu
+                    onClick={() => setMenuState(false)}
                     options={options}
                     theme={theme}
                 />

@@ -1,18 +1,26 @@
 @import "../../based";
 
-$banner: 268px;
+$banner: 220px;
 $deco-bar-w: 100px;
 $deco-bar-h: 5px;
 
 #service {
     .service-container {
+        // background-image: url("../../assets/images/bg/service-bg.png");
+        // background-position: center top $banner;
+        // background-size: cover;
+
         .banner {
             height: $banner;
+            background-image: url("../../assets/images/photo/service-banner.png");
+            background-size: cover;
         }
 
         .wrapper {
             margin: 0 auto;
+            padding-top: 4rem;
             width: 1280px;
+            min-height: calc(100vh - $banner);
 
             .content {
                 white-space: pre-line;
@@ -31,8 +39,9 @@ $deco-bar-h: 5px;
 
             .imgs-container {
                 display: grid;
-                column-gap: 2rem;
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                column-gap: 4rem;
+                row-gap: 6rem;
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     }

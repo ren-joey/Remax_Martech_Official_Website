@@ -2,21 +2,18 @@ import { useState } from 'react';
 import './menu-btn.scss';
 import { Theme } from '../../Shared/Header';
 
-interface MenuBtnProps {
-    onClickWhenClose?: () => void,
-    onClickWhenOpen?: () => void,
+interface MenuBtnProps extends ToggleBtnProps {
+    state: boolean,
     theme?: Theme
 }
 
 const MenuBtn = ({
+    state,
     onClickWhenClose=() => {},
     onClickWhenOpen=() => {},
     theme='dark'
 }: MenuBtnProps) => {
-    const [state, setState] = useState(false);
-
     const onClick = () => {
-        setState(b => !b);
         if (state === false) {
             onClickWhenClose();
         } else {

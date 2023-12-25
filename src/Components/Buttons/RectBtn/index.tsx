@@ -1,14 +1,9 @@
 import './rect-btn.scss';
 
-interface RectBtnProps {
-    text: string,
-    onClick?: () => void
-}
-
 const RectBtn = ({
     text,
     onClick=() => {}
-}: RectBtnProps) => {
+}: BtnProps) => {
     return (
         <div id="rect-btn">
             <div

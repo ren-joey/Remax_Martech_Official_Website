@@ -2,9 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Theme } from '../../Shared/Header';
 import './lang-btn.scss';
 
-interface LangBtnProps {
-    onClickWhenClose?: () => void,
-    onClickWhenOpen?: () => void,
+interface LangBtnProps extends ToggleBtnProps {
     theme?: Theme
 }
 

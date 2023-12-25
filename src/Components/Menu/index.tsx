@@ -13,13 +13,15 @@ export interface MenuOption {
 
 interface MenuProps {
     options?: MenuOption[],
-    theme?: Theme
+    theme?: Theme,
+    onClick?: () => void
 }
 
 
 const Menu = ({
     options=[],
-    theme='dark'
+    theme='dark',
+    onClick=() => {}
 }: MenuProps) => {
     const { t } = useTranslation();
     const location = useLocation();
@@ -35,7 +37,10 @@ const Menu = ({
                     options.map((opt) => (
                         <div
                             className={`menu-item ${location.pathname === opt.pathname ? 'active' : ''}`}
-                            onClick={() => navigate(opt.pathname)}
+                            onClick={() => {
+                                navigate(opt.pathname);
+                                onClick();
+                            }}
                             key={opt.i18n}
                         >
                             { t(opt.i18n) }

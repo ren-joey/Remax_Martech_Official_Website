@@ -1,14 +1,9 @@
 import './simple-img-display.scss';
 
-interface SimpleImgDisplayProps {
-    img: string|undefined,
-    desc?: string|undefined
-}
-
 const SimpleImgDisplay = ({
     img,
     desc
-}: SimpleImgDisplayProps) => {
+}: ImgDisplayProps) => {
     return (
         <div id="simple-img-display">
             <div

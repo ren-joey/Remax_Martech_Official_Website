@@ -5,8 +5,14 @@ import { useTranslation } from 'react-i18next';
 import './about-us.scss';
 import SimpleImgDisplay from '../../Components/Images/SimpleImgDisplay';
 import Wrapper from '../../Components/Shared/Wrapper';
+import imgMap from '../../Components/Images/imgMap';
 
-const images: string[] = ['', '', '', ''];
+const images: string[] = [
+    imgMap.about_us_img_1,
+    imgMap.about_us_img_1,
+    imgMap.about_us_img_1,
+    imgMap.about_us_img_1
+];
 
 const Service = () => {
     const navigate = useNavigate();

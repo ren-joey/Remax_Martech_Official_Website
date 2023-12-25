@@ -1,0 +1,50 @@
+@import "../../based";
+
+.service-slider {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    margin: 0 auto;
+    max-width: 800px;
+
+    .title {
+        width: 100%;
+
+        @include title(2rem, 1px);
+    }
+
+    > .content-side {
+        flex: 1;
+        padding-right: 2rem;
+
+        .desc {
+            font-size: 1rem;
+            white-space: pre-line;
+            color: $white;
+        }
+
+        .control {
+            display: flex;
+
+            > .btn-container {
+                width: 3rem;
+            }
+        }
+
+        > .image-slides {
+            display: flex;
+            justify-content: space-between;
+
+            .image-container {
+                // padding: 1rem;
+                max-width: 200px;
+                flex: 1;
+            }
+        }
+    }
+
+    > .image-side {
+        width: 40%;
+        max-width: 400px;
+    }
+}
