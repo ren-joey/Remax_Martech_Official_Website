@@ -6,6 +6,8 @@ import LangBtn from '../../Buttons/LangBtn';
 import MenuBtn from '../../Buttons/MenuBtn';
 import Menu, { MenuOption } from '../../Menu';
 import { useNavigate } from 'react-router-dom';
+import Martech from '../../Logos/Martech';
+import Remax from '../../Logos/Remax';
 
 export type Theme = 'light'|'dark';
 
@@ -96,15 +98,21 @@ const Header = ({
 
     return (
         <div className={`header-container ${pos > 80 && menuState === false ? 'active' : ''} ${theme}`}>
-            <div className="pillar left"></div>
+            <div className="pillar left align-"></div>
             <div className="header">
-                <div className="flex">
-                    <div className="mr-auto">
-                        <MenuBtn
-                            onClickWhenClose={() => setMenuState(true)}
-                            onClickWhenOpen={() => setMenuState(false)}
-                            theme={theme}
-                        />
+                <div className="flex items-center">
+                    <MenuBtn
+                        onClickWhenClose={() => setMenuState(true)}
+                        onClickWhenOpen={() => setMenuState(false)}
+                        theme={theme}
+                    />
+                    <div className="mx-auto flex">
+                        <div className="logo-container">
+                            <Martech />
+                        </div>
+                        <div className="logo-container pt-1">
+                            <Remax />
+                        </div>
                     </div>
                     <LangBtn theme={theme} />
                 </div>

@@ -27,9 +27,9 @@ $circle: 120vh;
             font-weight: bolder;
             white-space: pre-line;
             color: $logo-blue;
+            transition: 2s color, 2s text-shadow;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: 2s color;
 
             .loading-progress {
                 position: absolute;
@@ -154,6 +154,10 @@ $circle: 120vh;
 
             .section-content {
                 color: $white;
+                text-shadow:
+                    0 0 50px $logo-blue,
+                    0 0 50px $logo-blue,
+                    0 0 50px $logo-blue;
 
                 .loading-progress {
                     opacity: 0;
