@@ -4,19 +4,24 @@ import './section.scss';
 import './section3.scss';
 import RectBtn from '../Buttons/RectBtn';
 import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
+import useOnScreen from '../../Hooks/useOnScreen';
 
 const Section3 = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
+    const ref = useRef<HTMLDivElement>(null);
+    const isVisible = useOnScreen(ref);
 
     return (
         <div
-            id="section-about-us"
-            className="section section-3"
+            id="section-3"
+            className={`section section-3 ${isVisible ? 'visible' : ''}`}
+            ref={ref}
         >
             <div className="wrapper">
                 <div className="image-container">
-                    <div className="about-us-photo"></div>
+                    <div className="about-us-photo img-transition"></div>
                 </div>
                 <div className="flex-1 ml-12">
                     <div className="title">

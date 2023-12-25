@@ -3,16 +3,23 @@ import Martech from '../Logos/Martech';
 import Remax from '../Logos/Remax';
 import './section.scss';
 import './section2.scss';
-import { useMemo } from 'react';
+import { useRef } from 'react';
+import useOnScreen from '../../Hooks/useOnScreen';
 
 const Section2 = () => {
     const { t } = useTranslation();
+    const ref = useRef<HTMLDivElement>(null);
+    const isVisible = useOnScreen(ref);
 
     return (
-        <div className="section section-2">
+        <div
+            id="section-2"
+            className={`section section-2 ${isVisible ? 'visible' : ''}`}
+            ref={ref}
+        >
             <div className="wrapper">
                 <div className="half top">
-                    <div className="logo-area flex">
+                    <div className="logo-area flex slow-down">
                         <div className="flex-1">
                             <Martech color="white" />
                         </div>
@@ -21,17 +28,21 @@ const Section2 = () => {
                         </div>
                     </div>
 
-                    <div className="title">
+                    <div className="title slow-down">
                         {t('section_2_title')}
                     </div>
 
                     <div className="ship"></div>
                 </div>
                 <div className="half mt-8 bot">
-                    <div className="desc">
-                        {t('section_2_subtitle')}
-                    </div>
+                    <div className="desc relative">
+                        <div className="slow-down">
+                            {t('section_2_subtitle')}
+                        </div>
 
+                        <div className="reflection"></div>
+                        <div className="section2-shadow"></div>
+                    </div>
                 </div>
             </div>
             <div className="wave-1"></div>

@@ -22,7 +22,6 @@
                 background-position: center 0;
                 background-size: auto 100%;
                 box-shadow: 30px 100px 100px rgba(0, 0, 0, 0.6);
-                animation: img-transition 2s ease-out;
             }
         }
 
@@ -65,31 +64,30 @@
         opacity: 0;
         pointer-events: none;
 
-        &.idx-1 {
-            animation: shine-scale 30s linear infinite;
-        }
-
         &.idx-2 {
             transform: scaleX(-1);
-            animation: shine 7s linear 2s infinite;
         }
 
         &.idx-3 {
             top: 5%;
             background-size: 60% auto;
-            animation: shine 3s linear 2s infinite;
         }
     }
-}
 
-@keyframes img-transition {
-    0% {
-        padding-bottom: 0;
-        background-size: auto 500px;
-    }
+    &.visible {
+        .bright {
+            &.idx-1 {
+                animation: shine-scale 30s linear infinite;
+            }
 
-    100% {
-        padding-bottom: calc(100% / 385 * 500);
+            &.idx-2 {
+                animation: shine 7s linear 2s infinite;
+            }
+
+            &.idx-3 {
+                animation: shine 3s linear 2s infinite;
+            }
+        }
     }
 }
 

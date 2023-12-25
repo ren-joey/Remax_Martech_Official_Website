@@ -9,12 +9,20 @@ import ImgPortKaoshiung from '../../assets/images/photo/port-kaoshiung.png';
 import ImgPortKeelung from '../../assets/images/photo/port-keelung.jpg';
 import ImgPortSauo from '../../assets/images/photo/port-sauo.jpg';
 import ImgPortTaichung from '../../assets/images/photo/port-taichung.png';
+import { useRef } from 'react';
+import useOnScreen from '../../Hooks/useOnScreen';
 
 const Section4 = () => {
     const { t } = useTranslation();
+    const ref = useRef<HTMLDivElement>(null);
+    const isVisible = useOnScreen(ref);
  
     return (
-        <div className="section section-4">
+        <div
+            id="section-4"
+            className={`section section-4 ${isVisible ? 'visible' : ''}`}
+            ref={ref}
+        >
             <div className="wrapper">
                 <div className="half left">
                     <div className="title">

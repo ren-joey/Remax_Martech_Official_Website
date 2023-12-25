@@ -5,6 +5,8 @@ import DottedDivider from '../Dividers/DottedDivider';
 import WaveDivider from '../Dividers/WaveDivider';
 import ServiceSlider, { ServiceSliderProps } from '../ServiceSlider';
 import imgMap from '../Images/imgMap';
+import { useRef } from 'react';
+import useOnScreen from '../../Hooks/useOnScreen';
 
 
 export interface ServiceProps {
@@ -14,6 +16,14 @@ export interface ServiceProps {
 
 const Section5 = () => {
     const { t } = useTranslation();
+    const refs = [
+        useRef<HTMLDivElement>(null),
+        useRef<HTMLDivElement>(null)
+    ];
+    const isVisible = [
+        useOnScreen(refs[0]),
+        useOnScreen(refs[1])
+    ];
 
     const services: ServiceProps[] = [
         {
@@ -172,7 +182,10 @@ const Section5 = () => {
     ];
 
     return (
-        <div className="section section-5">
+        <div
+            id="section-5"
+            className="section section-5"
+        >
             <div className="wrapper">
                 <div className="title">
                     <div className="bar"></div>
@@ -183,8 +196,11 @@ const Section5 = () => {
                 </div>
 
                 <div className="service mt-20">
-                    <div className="img-block">
-                        <div className="img-container idx-1"></div>
+                    <div
+                        className={`img-block ${isVisible[0] ? 'visible' : ''}`}
+                        ref={refs[0]}
+                    >
+                        <div className="img-container idx-1 img-transition-2"></div>
                     </div>
                     <div className="content">
                         <div className="title">
@@ -212,8 +228,11 @@ const Section5 = () => {
                 </div>
 
                 <div className="service mt-20">
-                    <div className="img-block">
-                        <div className="img-container idx-2"></div>
+                    <div
+                        className={`img-block ${isVisible[1] ? 'visible' : ''}`}
+                        ref={refs[1]}
+                    >
+                        <div className="img-container idx-2 img-transition-2"></div>
                     </div>
                     <div className="content">
                         <div className="title">

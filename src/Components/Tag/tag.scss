@@ -8,7 +8,6 @@
         padding: 0.3rem 1rem 0.3rem 2rem;
         background-color: rgba(0, 0, 0, 0.5);
         border: 1px solid $white;
-        animation: width-grow 1s linear;
 
         .yellow-bar {
             position: absolute;
@@ -33,7 +32,6 @@
         width: 1px;
         height: 30px;
         background-color: $white;
-        animation: height-grow 1s linear;
     }
 
     .dot {
@@ -44,6 +42,36 @@
         height: 8px;
         background-color: #fff;
         border-radius: 5px;
+    }
+}
+
+.visible {
+    #tag {
+        .tag-container {
+            &.type-1 {
+                animation: width-grow 1s linear;
+
+                .ping {
+                    animation: height-grow 1s linear;
+                }
+            }
+
+            &.type-2 {
+                animation: width-grow 1.5s linear;
+
+                .ping {
+                    animation: height-grow 1.5s linear;
+                }
+            }
+
+            &.type-3 {
+                animation: width-grow 2s linear;
+
+                .ping {
+                    animation: height-grow 2s linear;
+                }
+            }
+        }
     }
 }
 

@@ -23,7 +23,6 @@
         left: 80.9%;
         width: 14.1%;
         z-index: 1;
-        animation: sail 60s linear;
 
         .freighter-icon {
             padding-bottom: calc(100% / 120 * 64);
@@ -31,7 +30,16 @@
             background-image: url("../../../assets/images/icon/freighter.svg");
             background-repeat: no-repeat;
             background-size: 100% 100%;
-            animation: floating 2s linear infinite,
+        }
+    }
+
+    &.visible {
+        .freighter {
+            animation: sail 60s linear;
+
+            .freighter-icon {
+                animation: floating 2s linear infinite,
+            }
         }
     }
 }

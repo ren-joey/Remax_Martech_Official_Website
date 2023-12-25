@@ -23,19 +23,19 @@ const Footer = ({
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => scroller?.scrollTo(2960 + 100)}
+                        onClick={() => scroller?.scrollTo('#section-3', { offset: 100 })}
                     >
                         {t('footer_col_1_nav_1')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => scroller?.scrollTo(4238 + 100)}
+                        onClick={() => scroller?.scrollTo('#section-4', { offset: 100 })}
                     >
                         {t('footer_col_1_nav_2')}
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => scroller?.scrollTo(6191 - 100)}
+                        onClick={() => scroller?.scrollTo('#section-5', { offset: 100 })}
                     >
                         {t('footer_col_1_nav_3')}
                     </div>

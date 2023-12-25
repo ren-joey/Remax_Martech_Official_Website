@@ -1,3 +1,14 @@
+.visible {
+    .img-transition {
+        animation: img-transition 2s ease-out;
+    }
+
+    .img-transition-2 {
+        background-position: center center !important;
+        animation: img-transition-2 5s ease-out;
+    }
+}
+
 @keyframes width-grow {
     0% {
         width: 0;
@@ -5,5 +16,26 @@
 
     100% {
         width: 100%;
+    }
+}
+
+@keyframes img-transition {
+    0% {
+        padding-bottom: 0;
+        background-size: auto 500px;
+    }
+
+    100% {
+        padding-bottom: calc(100% / 385 * 500);
+    }
+}
+
+@keyframes img-transition-2 {
+    0% {
+        background-size: 150% auto;
+    }
+
+    100% {
+        background-size: 100% auto;
     }
 }

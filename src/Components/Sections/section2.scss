@@ -30,7 +30,6 @@
                     background-position: center bottom;
                     background-repeat: no-repeat;
                     background-size: 100% auto;
-                    animation: ship-move 120s linear;
                 }
             }
 
@@ -68,7 +67,6 @@
         background-position: center bottom 50px;
         background-repeat: no-repeat;
         transform: scaleX(-1);
-        animation: wave-down 5s linear infinite;
     }
 
     .wave-2 {
@@ -81,7 +79,59 @@
         background-position: 90px top;
         background-repeat: no-repeat;
         transform: scaleX(-1);
-        animation: wave-right 3s linear infinite;
+    }
+
+    .section2-shadow {
+        position: absolute;
+        bottom: -3rem;
+        left: -1.4rem;
+        width: 36rem;
+        height: 0.5rem;
+        background-color: #000;
+        border-radius: 50%;
+        filter: blur(8px);
+    }
+
+    .reflection {
+        position: absolute;
+        bottom: -40rem / 626 * 396;
+        left: -1.4rem;
+        width: 36rem;
+        height: 36rem / 626 * 396;
+        background-image: url("../../assets/images/bg/section-2-ocean-surface-text-effect.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        opacity: 0.3;
+        transform: scaleY(0.6);
+        transform-origin: top center;
+    }
+
+    &.visible {
+        .wrapper {
+            .half {
+                &.top {
+                    .ship {
+                        animation: ship-move 120s linear;
+                    }
+                }
+            }
+        }
+
+        .wave-1 {
+            animation: wave-down 5s linear infinite;
+        }
+
+        .wave-2 {
+            animation: wave-right 3s linear infinite;
+        }
+
+        .reflection {
+            animation: slow-up-2 15s ease-out;
+        }
+
+        .slow-down {
+            animation: slow-down 15s ease-out;
+        }
     }
 }
 
@@ -132,5 +182,35 @@
     100% {
         background-position: 130px top;
         opacity: 0;
+    }
+}
+
+@keyframes slow-down {
+    0% {
+        transform: translateY(-3rem);
+    }
+
+    10% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slow-up-1 {
+    0% {
+        transform: translateY(3rem);
+    }
+
+    10% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slow-up-2 {
+    0% {
+        transform: translateY(8rem) scaleY(0.3);
+    }
+
+    10% {
+        transform: translateY(0) scaleY(0.6);
     }
 }

@@ -6,9 +6,11 @@ interface TagProps {
 }
 
 const Tag = ({text}: TagProps) => {
+    const type = Math.ceil(Math.random() * 3);
+
     return (
         <div id="tag">
-            <div className="tag-container">
+            <div className={`tag-container type-${type}`}>
                 <div className="yellow-bar"></div>
                 <div className="text">
                     {text}

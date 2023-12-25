@@ -6,7 +6,7 @@ import Remax from '../Logos/Remax';
 import { useEffect, useMemo, useState } from 'react';
 import gsap from 'gsap';
 
-const localStorageKey = 'REMAX_MARTECH_OFFICIAL_WEBSITE_LOADED';
+export const localStorageKey = 'REMAX_MARTECH_OFFICIAL_WEBSITE_LOADED';
 
 const Section1 = () => {
     const { t } = useTranslation();
@@ -17,9 +17,8 @@ const Section1 = () => {
 
     useEffect(() => {
         // [DEV]
-        localStorage.removeItem(localStorageKey);
+        // localStorage.removeItem(localStorageKey);
 
-        window.scrollTo(0, 0);
         if (localStorage.getItem(localStorageKey) === '1') {
             setProg(100);
         } else {
@@ -41,7 +40,10 @@ const Section1 = () => {
     }, []);
 
     return (
-        <div className={`section section-1 ${prog === 100 ? 'active' : ''}`}>
+        <div
+            id="section-1"
+            className={`section section-1 ${prog === 100 ? 'active' : ''}`}
+        >
             <div className="section-container">
                 <div className="logo-area">
                     <div className="flex-1 relative">
