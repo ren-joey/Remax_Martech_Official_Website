@@ -76,7 +76,7 @@ const Section5 = () => {
                     </div>
                 </div>
 
-                <div className="my-20">
+                <div className="py-40 divider-container">
                     <WaveDivider />
                 </div>
             </div>

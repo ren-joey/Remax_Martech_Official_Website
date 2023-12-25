@@ -2,26 +2,60 @@
 
 #wave-divider {
     position: relative;
+    padding-bottom: calc(100% / 100 * 11.7);
     width: 100%;
-    height: 3rem;
 
     .wave {
         position: absolute;
+        bottom: 0;
+        left: 0;
         padding: calc(100% / 848 * 31);
         width: 100%;
         background-image: url("../../../assets/images/icon/wave.svg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
         z-index: 2;
     }
 
     .freighter {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 3rem;
-        height: 3rem;
-        background-image: url("../../../assets/images/icon/freighter.svg");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
+        left: 80.9%;
+        width: 14.1%;
         z-index: 1;
+        animation: sail 60s linear;
+
+        .freighter-icon {
+            padding-bottom: calc(100% / 120 * 64);
+            width: 100%;
+            background-image: url("../../../assets/images/icon/freighter.svg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            animation: floating 2s linear infinite,
+        }
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes sail {
+    0% {
+        left: 10%;
+    }
+
+    100% {
+        left: 80.9%;
     }
 }
