@@ -10,7 +10,10 @@ const Section3 = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="section section-3">
+        <div
+            id="section-about-us"
+            className="section section-3"
+        >
             <div className="wrapper">
                 <div className="image-container">
                     <div className="about-us-photo"></div>

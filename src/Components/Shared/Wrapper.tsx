@@ -2,6 +2,7 @@ import ASScroll from '@ashthornton/asscroll';
 import Messager from '../Messager';
 import { useEffect } from 'react';
 import Header, { Theme } from './Header';
+import Footer from './Footer';
 
 
 
@@ -25,6 +26,7 @@ const Wrapper = ({
             />
             { children }
             <Messager />
+            <Footer />
         </div>
     );
 };

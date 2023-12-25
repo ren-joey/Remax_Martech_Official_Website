@@ -5,7 +5,11 @@ import Router from './Router';
 import GlobDataProvider from './Context/GlobDataProvider';
 import './index.css';
 import './i18n';
+import gsap from 'gsap';
+import { ScrollToPlugin } from 'gsap/all';
 
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

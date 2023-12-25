@@ -247,6 +247,7 @@ const Section5 = () => {
                 {
                     services.map((service, idx) => (
                         <div
+                            id={`service_slider_${idx + 1}`}
                             className="pb-32"
                             key={`service_${service.pathname}_${idx}`}
                         >
