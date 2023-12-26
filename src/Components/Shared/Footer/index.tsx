@@ -17,8 +17,6 @@ const Footer = ({
 }: FooterProps) => {
     const { t } = useTranslation();
 
-    // TODO:
-    // 滾動事件很多都異常
     return (
         <div className="footer">
             <div className="footer-container">

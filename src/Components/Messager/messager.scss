@@ -13,12 +13,27 @@
         align-items: center;
         height: $header;
         background-color: $white;
+        border: 1px solid $logo-blue;
         transition: 0.3s ease-out transform;
         transform: translate(calc(100% - $header));
 
         > .icon {
+            position: relative;
             width: $header;
             height: $header;
+
+            .icon-bg {
+                position: absolute;
+                top: 32%;
+                left: 32%;
+                width: 36%;
+                height: 36%;
+                background-image: url("../../assets/images/icon/paper-plane.svg.svg");
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                animation: twisting 2.4s linear infinite;
+            }
         }
 
         > .text {
@@ -33,5 +48,27 @@
         &:hover {
             transform: translate(0);
         }
+    }
+}
+
+@keyframes twisting {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    8% {
+        transform: translate(6px, -6px);
+    }
+
+    16% {
+        transform: translate(0, 0);
+    }
+
+    24% {
+        transform: translate(6px, -6px);
+    }
+
+    32% {
+        transform: translate(0, 0);
     }
 }

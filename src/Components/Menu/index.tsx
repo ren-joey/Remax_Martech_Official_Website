@@ -29,8 +29,6 @@ const Menu = ({
     const location = useLocation();
     const navigate = useNavigate();
 
-    // TODO:
-    // 改用滾動事件
     return (
         <div
             id="menu"
