@@ -1,10 +1,9 @@
-import { MutableRefObject, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 import './header.scss';
 import LangBtn from '../../Buttons/LangBtn';
 import MenuBtn from '../../Buttons/MenuBtn';
 import Menu, { MenuOption } from '../../Menu';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Martech from '../../Logos/Martech';
 import Remax from '../../Logos/Remax';
 import LocomotiveScroll from 'locomotive-scroll';

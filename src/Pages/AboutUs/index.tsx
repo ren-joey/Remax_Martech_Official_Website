@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import RectBtn from '../../Components/Buttons/RectBtn';
 import { useTranslation } from 'react-i18next';
 import './about-us.scss';

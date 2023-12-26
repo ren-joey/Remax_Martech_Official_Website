@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import './footer.scss';
 import Martech from '../../Logos/Martech';
 import Remax from '../../Logos/Remax';
-import gsap from 'gsap';
 import LocomotiveScroll from 'locomotive-scroll';
 import { ScrollToTarget } from '../Wrapper';
 

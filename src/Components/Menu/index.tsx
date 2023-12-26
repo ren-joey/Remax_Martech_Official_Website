@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import './menu.scss';
 import { Theme } from '../Shared/Header';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { ScrollToTarget } from '../Shared/Wrapper';
 
 
 export interface MenuOption {

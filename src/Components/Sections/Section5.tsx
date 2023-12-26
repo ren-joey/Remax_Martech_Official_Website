@@ -3,7 +3,7 @@ import './section.scss';
 import './section5.scss';
 import DottedDivider from '../Dividers/DottedDivider';
 import WaveDivider from '../Dividers/WaveDivider';
-import ServiceSlider, { ServiceSliderProps } from '../ServiceSlider';
+import ServiceSlider from '../ServiceSlider';
 import imgMap from '../Images/imgMap';
 import { useRef } from 'react';
 import useOnScreen from '../../Hooks/useOnScreen';
