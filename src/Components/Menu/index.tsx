@@ -2,13 +2,15 @@ import { useTranslation } from 'react-i18next';
 import './menu.scss';
 import { Theme } from '../Shared/Header';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { ScrollToTarget } from '../Shared/Wrapper';
 
 
 export interface MenuOption {
     i18n: string,
     name: string,
     subMenu?: MenuOption[],
-    pathname: string
+    pathname?: string,
+    onClick?: () => void
 }
 
 interface MenuProps {
@@ -40,8 +42,13 @@ const Menu = ({
                         <div
                             className={`menu-item ${location.pathname === opt.pathname ? 'active' : ''}`}
                             onClick={() => {
-                                navigate(opt.pathname);
                                 onClick();
+                                if (location.pathname === '/') {
+                                    if (opt.onClick) opt.onClick();
+                                    else navigate(opt?.pathname || '/');
+                                } else {
+                                    navigate(opt?.pathname || '/');
+                                }
                             }}
                             key={opt.i18n}
                         >

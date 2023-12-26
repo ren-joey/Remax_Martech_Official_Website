@@ -203,7 +203,7 @@ const Service = () => {
                             </div>
                         </div>
 
-                        <div className="imgs-container flex mb-20">
+                        <div className="imgs-container flex pb-20">
                             {
                                 param.service ? (
                                     services[+param.service - 1].imgs.map((img, idx) => (

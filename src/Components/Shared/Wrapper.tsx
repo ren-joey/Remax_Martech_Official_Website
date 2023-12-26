@@ -6,7 +6,11 @@ import './wrapper.scss';
 import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 import { ScrollTrigger } from 'gsap/all';
 import { localStorageKey } from '../Sections/Section1';
+import LocomotiveScroll from 'locomotive-scroll';
+import { useLocation } from 'react-router-dom';
 
+export type ScrollTarget = 1|2|3|4|5|string;
+export type ScrollToTarget = (t: ScrollTarget) => void;
 
 interface WrapperProps {
     children: JSX.Element,
@@ -19,10 +23,11 @@ const Wrapper = ({
     children,
     theme='dark'
 }: WrapperProps) => {
+    const location = useLocation();
     const section = useRef(1);
     const scrolling = useRef(false);
     const containerRef = useRef(null);
-    const [scroll, setScroll] = useState(null);
+    const [scroll, setScroll] = useState<null|LocomotiveScroll>(null);
     const prevPos = useRef(window.scrollY);
     const [pos, setPos] = useState(window.scrollY);
 
@@ -36,6 +41,7 @@ const Wrapper = ({
                     el: containerRef.current as any,
                     smooth: true
                 });
+
                 scroller.on('scroll', ScrollTrigger.update);
                 ScrollTrigger.scrollerProxy(containerRef.current, {
                     scrollTop(value) {
@@ -52,72 +58,72 @@ const Wrapper = ({
                         };
                     }
                 });
-    
-    
-                if (localStorage.getItem(localStorageKey) !== '1') {
-                    scroller.stop();
-                    setTimeout(() => {
-                        scroller.start();
-                    }, 6000);
-                } else {
-                    // section.current += 1;
-                    // scroller?.scrollTo(`#section-${section.current}`, { offset: 100 });
-                    // scroller.stop();
-                    // setTimeout(() => scroller.start(), 3000);
-                }
-    
-    
-                scroller.on('scroll', (args: any) => {
-                    console.log(section.current);
-                    if (!scrolling.current) {
-                        if (prevPos.current < args.scroll.y) {
-                            if (section.current < 5) {
-                                section.current += 1;
-                                scrolling.current = true;
-                                scroller?.scrollTo(
-                                    `#section-${section.current}`,
-                                    { offset: offsets[section.current - 1]}
-                                );
-                                scroller.stop();
-                                setTimeout(() => {
-                                    scroller.start();
-                                    scrolling.current = false;
-                                }, 2000);
+
+                if (location.pathname === '/') {
+                    if (localStorage.getItem(localStorageKey) !== '1') {
+                        scroller.stop();
+                        setTimeout(() => {
+                            scroller.start();
+                        }, 6000);
+                    } else {
+                        // section.current += 1;
+                        // scroller?.scrollTo(`#section-${section.current}`, { offset: 100 });
+                        // scroller.stop();
+                        // setTimeout(() => scroller.start(), 3000);
+                    }
+        
+        
+                    scroller.on('scroll', (args: any) => {
+                        if (!scrolling.current) {
+                            if (prevPos.current < args.scroll.y) {
+                                if (section.current < 5) {
+                                    section.current += 1;
+                                    scrolling.current = true;
+                                    scroller?.scrollTo(
+                                        `#section-${section.current}`,
+                                        { offset: offsets[section.current - 1]}
+                                    );
+                                    scroller.stop();
+                                    setTimeout(() => {
+                                        scroller.start();
+                                        scrolling.current = false;
+                                    }, 2000);
+                                } else {
+                                    //
+                                }
                             } else {
-                                //
-                            }
-                        } else {
-                            if ((section.current < 5 && section.current > 1)
-                                || (section.current === 5 && args.scroll.y < 6000)) {
-                                section.current -= 1;
-                                scrolling.current = true;
-                                scroller?.scrollTo(
-                                    `#section-${section.current}`,
-                                    { offset: offsets[section.current - 1]}
-                                );
-                                scroller.stop();
-                                setTimeout(() => {
-                                    scroller.start();
-                                    scrolling.current = false;
-                                }, 2000);
-                            } else {
-                                //
+                                if ((section.current < 5 && section.current > 1)
+                                    || (section.current === 5 && args.scroll.y < 6000)) {
+                                    section.current -= 1;
+                                    scrolling.current = true;
+                                    scroller?.scrollTo(
+                                        `#section-${section.current}`,
+                                        { offset: offsets[section.current - 1]}
+                                    );
+                                    scroller.stop();
+                                    setTimeout(() => {
+                                        scroller.start();
+                                        scrolling.current = false;
+                                    }, 2000);
+                                } else {
+                                    //
+                                }
                             }
                         }
-                    }
-    
-                    setPos((y) => {
-                        console.log(y);
-                        prevPos.current = y;
-                        return args.scroll.y;
                     });
-                });
-    
-                ScrollTrigger.addEventListener('refresh', () => scroller.update()); // error: TypeError: Cannot read properties of undefined (reading 'match')
-                ScrollTrigger.refresh();
-                // window.onbeforeunload = function () { window.scrollTo(0, 0); };
-    
-                setScroll(scroller);
+
+                    // ScrollTrigger.addEventListener('refresh', () => scroller.update()); // error: TypeError: Cannot read properties of undefined (reading 'match')
+                    // ScrollTrigger.refresh();
+
+                    scroller.on('scroll', (args: any) => {
+                        setPos((y) => {
+                            prevPos.current = y;
+                            return args.scroll.y;
+                        });
+                    });
+        
+                    setScroll(scroller);
+                }
             });
         }, 100);
 
@@ -126,12 +132,37 @@ const Wrapper = ({
         };
     }, []);
 
+    const scrollToTarget: ScrollToTarget = (target) => {
+        if (scroll) {
+            scrolling.current = true;
+            if (typeof target === 'string') {
+                section.current = 5;
+                scroll.scrollTo(
+                    target,
+                    { offset: -100}
+                );
+            } else {
+                section.current = target;
+                scroll.scrollTo(
+                    `#section-${target}`,
+                    { offset: offsets[target - 1]}
+                );
+            }
+            scroll.stop();
+            setTimeout(() => {
+                scroll.start();
+                scrolling.current = false;
+            }, 2000);
+        }
+    };
+
     return (
         <div className="main-wrapper">
             <Header
                 pos={pos}
                 scroller={scroll}
                 theme={theme}
+                scrollToTarget={scrollToTarget}
             />
             <div
                 id="scroll-container"
@@ -139,7 +170,15 @@ const Wrapper = ({
                 ref={containerRef}
             >
                 { children }
-                <Footer scroller={scroll} />
+
+                {
+                    location.pathname === '/' ? (
+                        <Footer
+                            scroller={scroll}
+                            scrollToTarget={scrollToTarget}
+                        />
+                    ) : ''
+                }
             </div>
             <Messager />
         </div>

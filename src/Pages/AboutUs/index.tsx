@@ -46,7 +46,7 @@ const Service = () => {
                             </div>
                         </div>
 
-                        <div className="imgs-container flex mb-20">
+                        <div className="imgs-container flex pb-20">
                             {
                                 images.map((img, idx) => (
                                     <div

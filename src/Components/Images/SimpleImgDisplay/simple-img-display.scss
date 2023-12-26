@@ -5,8 +5,9 @@
         padding-bottom: calc(100% / 300 * 220);
         width: 100%;
         background-position: center center;
-        background-size: cover;
-        background-color: #000;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: #fff;
     }
 
     .desc {
