@@ -8,6 +8,8 @@ interface GlobDataContextProps {
     scroller: null|LocomotiveScroll
     setScroller: React.Dispatch<React.SetStateAction<null|LocomotiveScroll>>
     scrollToTarget: ScrollToTarget,
+    prevLocation: ScrollTarget,
+    setPrevLocation: (t: ScrollTarget) => void,
     pos: number
 }
 
@@ -15,6 +17,8 @@ export const GlobDataContext = React.createContext<GlobDataContextProps>({
     scroller: null,
     setScroller: () => {},
     scrollToTarget: () => {},
+    prevLocation: 1,
+    setPrevLocation: () => {},
     pos: NaN
 });
 
@@ -23,7 +27,7 @@ const offsets = [0, 100, 100, 100, -100];
 const GlobDataProvider = ({ children }:{
     children: ReactElement
 }) => {
-    const prevLocation = useRef<ScrollTarget>(1);
+    const [prevLocation, setPrevLocation] = useState<ScrollTarget>(1);
     const section = useRef<1|2|3|4|5>(1);
     const scrolling = useRef(false);
     const prevPos = useRef(window.scrollY);
@@ -48,7 +52,6 @@ const GlobDataProvider = ({ children }:{
             }
             scroller.stop();
             setTimeout(() => {
-                prevLocation.current = target;
                 scroller.start();
                 scrolling.current = false;
             }, 2000);
@@ -97,8 +100,9 @@ const GlobDataProvider = ({ children }:{
                 });
             });
 
-            if (prevLocation.current) {
-                scrollToTarget(prevLocation.current);
+            if (prevLocation !== 1) {
+                scrollToTarget(prevLocation);
+                setPrevLocation(1);
             }
         }
     }, [scroller]);
@@ -109,6 +113,8 @@ const GlobDataProvider = ({ children }:{
                 scroller,
                 setScroller,
                 scrollToTarget,
+                prevLocation,
+                setPrevLocation,
                 pos
             }}
         >
