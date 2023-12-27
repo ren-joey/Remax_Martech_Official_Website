@@ -3,7 +3,7 @@ import './header.scss';
 import LangBtn from '../../Buttons/LangBtn';
 import MenuBtn from '../../Buttons/MenuBtn';
 import Menu, { MenuOption } from '../../Menu';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Martech from '../../Logos/Martech';
 import Remax from '../../Logos/Remax';
 import { GlobDataContext } from '../../../Context/GlobDataProvider';
@@ -18,6 +18,7 @@ const Header = ({ theme='dark' }: HeaderProps) => {
     const [menuState, setMenuState] = useState(false);
     const navigate = useNavigate();
     const { scrollToTarget, pos } = useContext(GlobDataContext);
+    const location = useLocation();
 
     const options: MenuOption[] = [
         {
