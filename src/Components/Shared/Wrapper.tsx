@@ -82,7 +82,7 @@ const Wrapper = ({
             <Header theme={theme} />
             <div
                 id="scroll-container"
-                className="scroll-container"
+                className="local-scroll-container"
                 ref={containerRef}
             >
                 { children }
