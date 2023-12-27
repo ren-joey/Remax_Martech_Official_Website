@@ -28,6 +28,10 @@ const useCompanyData = () => {
                 {
                     img: imgMap.section_7_service_1_img_4,
                     desc: t('section_7_service_1_img_4')
+                },
+                {
+                    img: imgMap.section_7_service_1_img_5,
+                    desc: t('section_7_service_1_img_5')
                 }
             ]
         },

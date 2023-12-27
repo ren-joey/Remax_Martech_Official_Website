@@ -10,9 +10,9 @@ import { GlobDataContext } from '../../Context/GlobDataProvider';
 
 const images: string[] = [
     imgMap.about_us_img_1,
-    imgMap.about_us_img_1,
-    imgMap.about_us_img_1,
-    imgMap.about_us_img_1
+    imgMap.about_us_img_2,
+    imgMap.about_us_img_3,
+    imgMap.about_us_img_4
 ];
 
 const Service = () => {

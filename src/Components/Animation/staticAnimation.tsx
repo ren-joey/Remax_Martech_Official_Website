@@ -51,10 +51,10 @@ const staticAnimation = (projects: Project[]) => {
 
 
             tl.to(container.scale, {
-                x: 1, y: 1, duration: 6, ease: Power1.easeIn
+                x: 1, y: 1, duration: 8, ease: Power1.easeIn
             }, idx * 1);
             tl.to(container.position, {
-                x: proj.end.x, y: proj.end.y, duration: 6, ease: Power3.easeIn
+                x: proj.end.x, y: proj.end.y, duration: 8, ease: Power3.easeIn
             }, idx * 1);
         });
     }

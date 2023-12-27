@@ -22,7 +22,8 @@ export const GlobDataContext = React.createContext<GlobDataContextProps>({
     pos: NaN
 });
 
-const offsets = [0, 100, 100, 100, -100];
+const offsets = [0, 30, 30, 30, 0];
+const duration = 1000;
 
 const GlobDataProvider = ({ children }:{
     children: ReactElement
@@ -41,20 +42,28 @@ const GlobDataProvider = ({ children }:{
                 section.current = 5;
                 scroller.scrollTo(
                     target,
-                    { offset: -100}
+                    {
+                        offset: -100,
+                        duration: duration - 500,
+                        disableLerp: true
+                    }
                 );
             } else {
                 section.current = target;
                 scroller.scrollTo(
                     `#section-${target}`,
-                    { offset: offsets[target - 1]}
+                    {
+                        offset: offsets[target - 1],
+                        duration: duration - 500,
+                        disableLerp: true
+                    }
                 );
             }
             scroller.stop();
             setTimeout(() => {
                 scroller.start();
                 scrolling.current = false;
-            }, 2000);
+            }, duration);
         }
     };
 
@@ -67,29 +76,13 @@ const GlobDataProvider = ({ children }:{
                     if (prevPos.current < args.scroll.y) {
                         if (section.current < 5) {
                             section.current += 1;
-                            scrolling.current = true;
                             scrollToTarget(section.current as ScrollTarget);
-                            scroller.stop();
-                            setTimeout(() => {
-                                scroller.start();
-                                scrolling.current = false;
-                            }, 2000);
-                        } else {
-                            //
                         }
                     } else {
                         if ((section.current < 5 && section.current > 1)
                             || (section.current === 5 && args.scroll.y < 5800)) {
                             section.current -= 1;
-                            scrolling.current = true;
                             scrollToTarget(section.current as ScrollTarget);
-                            scroller.stop();
-                            setTimeout(() => {
-                                scroller.start();
-                                scrolling.current = false;
-                            }, 2000);
-                        } else {
-                            //
                         }
                     }
                 }
