@@ -4,7 +4,6 @@ import './section5.scss';
 import DottedDivider from '../Dividers/DottedDivider';
 import WaveDivider from '../Dividers/WaveDivider';
 import ServiceSlider from '../ServiceSlider';
-import imgMap from '../Images/imgMap';
 import React, { useContext, useRef } from 'react';
 import useOnScreen from '../../Hooks/useOnScreen';
 import { GlobDataContext } from '../../Context/GlobDataProvider';
