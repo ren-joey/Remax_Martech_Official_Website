@@ -20,6 +20,7 @@
             flex-direction: column;
             justify-content: center;
             height: 100%;
+            z-index: $page + 1;
         }
 
         .title {
@@ -38,12 +39,25 @@
             width: 120%;
         }
 
+        .taiwan {
+            position: relative;
+            margin-top: 190px;
+            margin-left: 190px;
+            width: 376px * 0.8;
+            height: 726px * 0.8;
+            background-image: url("../../assets/images/bg/section-4-taiwan-effect.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            z-index: $page;
+        }
+
         .port {
             position: absolute;
+            z-index: $page + 2;
 
             &.taipei {
-                top: 31%;
-                left: 475px;
+                top: 0;
+                left: 65%;
             }
 
             // &.taoyuan {
@@ -52,28 +66,28 @@
             // }
 
             &.keelung {
-                top: 25%;
-                left: 500px;
+                top: -8%;
+                left: 70%;
             }
 
             &.taichung {
-                top: 42%;
-                left: 360px;
+                top: 22%;
+                left: 25%;
             }
 
             &.suao {
-                top: 40%;
-                left: 570px;
+                top: 12%;
+                left: 80%;
             }
 
             &.anping {
-                top: 53%;
-                left: 285px;
+                top: 40%;
+                left: 0;
             }
 
             &.kaoshiung {
-                top: 68%;
-                left: 260px;
+                top: 60%;
+                left: 5%;
             }
         }
     }
