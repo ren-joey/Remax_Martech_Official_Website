@@ -3,7 +3,7 @@ module.exports = {
     format: '{type}{scope}: {emoji}{subject}',
     list: [
         'feat',
-        'update',
+        'upt',
         'tidy',
         'asset',
         'fix',
@@ -28,7 +28,7 @@ module.exports = {
             emoji: '🌱',
             value: 'init'
         },
-        update: {
+        upt: {
             description: 'Feature updates',
             emoji: '♻️',
             value: 'upt'
