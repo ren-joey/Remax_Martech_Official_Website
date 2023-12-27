@@ -57,6 +57,14 @@ const Section5 = () => {
                 {
                     img: imgMap.section_7_service_2_img_1,
                     desc: t('section_7_service_2_img_1')
+                },
+                {
+                    img: imgMap.section_7_service_2_img_2,
+                    desc: t('section_7_service_2_img_')
+                },
+                {
+                    img: imgMap.section_7_service_2_img_3,
+                    desc: t('section_7_service_2_img_')
                 }
             ]
         },
@@ -87,6 +95,10 @@ const Section5 = () => {
                 {
                     img: imgMap.section_7_service_4_img_2,
                     desc: t('section_7_service_4_img_2')
+                },
+                {
+                    img: imgMap.section_7_service_4_img_3,
+                    desc: t('section_7_service_4_img_3')
                 }
             ]
         },
@@ -123,6 +135,10 @@ const Section5 = () => {
         {
             pathname: '/service/7',
             imgs: [
+                {
+                    img: imgMap.section_7_service_7_img_1,
+                    desc: t('section_7_service_7_img_1')
+                },
                 {
                     img: imgMap.section_7_service_7_img_2,
                     desc: t('section_7_service_7_img_2')
