@@ -86,6 +86,8 @@
 
                 > .service-list {
                     .service-item {
+                        @extend %button;
+
                         line-height: 2.4rem;
                         color: $white;
                         letter-spacing: 1px;

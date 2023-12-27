@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './header.scss';
 import LangBtn from '../../Buttons/LangBtn';
 import MenuBtn from '../../Buttons/MenuBtn';
@@ -6,25 +6,18 @@ import Menu, { MenuOption } from '../../Menu';
 import { useNavigate } from 'react-router-dom';
 import Martech from '../../Logos/Martech';
 import Remax from '../../Logos/Remax';
-import LocomotiveScroll from 'locomotive-scroll';
-import { ScrollToTarget } from '../Wrapper';
+import { GlobDataContext } from '../../../Context/GlobDataProvider';
 
 export type Theme = 'light'|'dark';
 
 interface HeaderProps {
-    pos: number,
-    scroller?: LocomotiveScroll|null,
-    theme?: Theme,
-    scrollToTarget: ScrollToTarget
+    theme?: Theme
 }
 
-const Header = ({
-    theme='dark',
-    pos,
-    scrollToTarget
-}: HeaderProps) => {
+const Header = ({ theme='dark' }: HeaderProps) => {
     const [menuState, setMenuState] = useState(false);
     const navigate = useNavigate();
+    const { scrollToTarget, pos } = useContext(GlobDataContext);
 
     const options: MenuOption[] = [
         {
@@ -106,7 +99,16 @@ const Header = ({
                         onClickWhenOpen={() => setMenuState(false)}
                         theme={theme}
                     />
-                    <div className="mx-auto flex">
+                    <div
+                        className="mx-auto flex"
+                        onClick={() => {
+                            if (location.pathname === '/') {
+                                scrollToTarget(1);
+                            } else {
+                                navigate('/');
+                            }
+                        }}
+                    >
                         <div className="logo-container">
                             <Martech color={theme === 'dark' ? 'white' : 'blue'} />
                         </div>

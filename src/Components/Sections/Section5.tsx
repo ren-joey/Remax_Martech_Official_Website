@@ -5,14 +5,17 @@ import DottedDivider from '../Dividers/DottedDivider';
 import WaveDivider from '../Dividers/WaveDivider';
 import ServiceSlider from '../ServiceSlider';
 import imgMap from '../Images/imgMap';
-import { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import useOnScreen from '../../Hooks/useOnScreen';
+import { GlobDataContext } from '../../Context/GlobDataProvider';
 
 
 export interface ServiceProps {
     pathname: string,
     imgs: ImgDisplayProps[]
 }
+
+const ShowCases = React.lazy(() => import('../Animation/ShowCases'));
 
 const Section5 = () => {
     const { t } = useTranslation();
@@ -24,6 +27,7 @@ const Section5 = () => {
         useOnScreen(refs[0]),
         useOnScreen(refs[1])
     ];
+    const { scrollToTarget } = useContext(GlobDataContext);
 
     const services: ServiceProps[] = [
         {
@@ -181,14 +185,15 @@ const Section5 = () => {
         }
     ];
 
-    // TODO:
-    // 少了 SHOW CASES
     return (
         <div
             id="section-5"
             className="section section-5"
         >
+            <ShowCases />
+
             <div className="wrapper">
+                
                 <div className="title">
                     <div className="bar"></div>
                     <br />
@@ -219,6 +224,7 @@ const Section5 = () => {
                                 [1, 2, 3, 4, 5, 6, 7, 8].map((val, idx) => (
                                     <div
                                         className="service-item"
+                                        onClick={() => scrollToTarget(`#service_slider_${val}`)}
                                         key={idx}
                                     >
                                         {t(`section_6_container_1_item_${val}`)}
@@ -251,6 +257,7 @@ const Section5 = () => {
                                 [1, 2].map((val, idx) => (
                                     <div
                                         className="service-item"
+                                        onClick={() => scrollToTarget('#service_slider_9')}
                                         key={idx}
                                     >
                                         {t(`section_6_container_2_item_${val}`)}

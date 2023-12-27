@@ -4,17 +4,13 @@ import Martech from '../../Logos/Martech';
 import Remax from '../../Logos/Remax';
 import LocomotiveScroll from 'locomotive-scroll';
 import { ScrollToTarget } from '../Wrapper';
+import { useContext } from 'react';
+import { GlobDataContext } from '../../../Context/GlobDataProvider';
 
-interface FooterProps {
-    scroller: LocomotiveScroll|null,
-    scrollToTarget: ScrollToTarget
-}
 
-const Footer = ({
-    scroller,
-    scrollToTarget
-}: FooterProps) => {
+const Footer = () => {
     const { t } = useTranslation();
+    const { scrollToTarget } = useContext(GlobDataContext);
 
     return (
         <div className="footer">

@@ -20,9 +20,12 @@ $light-border: 1px solid rgba($blue, 0.3);
         transition: 0.3s ease-out background-color, 0.5s ease-out border;
 
         .logo-container {
+            @extend %button;
+
             width: 160px;
             opacity: 0;
             transition: 0.3s opacity;
+            pointer-events: none;
         }
     }
 
@@ -53,6 +56,7 @@ $light-border: 1px solid rgba($blue, 0.3);
 
             .logo-container {
                 opacity: 1;
+                pointer-events: all;
             }
 
             // border-bottom: $border-active;
@@ -135,14 +139,34 @@ $light-border: 1px solid rgba($blue, 0.3);
             }
         }
 
-        &.active {
-            > .header {
-                background-color: rgba($blue, 0.1);
-            }
-        }
-
         > .header-menu {
             background-color: $white;
+        }
+
+        &.active {
+            > .header {
+                background-color: rgba($white, 0.7);
+                border-bottom: $light-border;
+                backdrop-filter: blur(5px);
+
+                .logo-container {
+                    opacity: 1;
+                }
+            }
+
+            > .pillar {
+                &.left {
+                    border-right: $light-border;
+                }
+
+                &.right {
+                    border-left: $light-border;
+                }
+            }
+
+            > .header-menu {
+                background-color: $white;
+            }
         }
     }
 }
