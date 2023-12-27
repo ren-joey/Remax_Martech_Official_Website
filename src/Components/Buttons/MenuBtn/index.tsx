@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './menu-btn.scss';
 import { Theme } from '../../Shared/Header';
 

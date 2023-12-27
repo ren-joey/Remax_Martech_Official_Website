@@ -1,5 +1,5 @@
 import Messager from '../Messager';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import Header, { Theme } from './Header';
 import Footer from './Footer';
 import './wrapper.scss';

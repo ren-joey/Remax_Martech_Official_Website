@@ -1,6 +1,5 @@
 import LocomotiveScroll from 'locomotive-scroll';
 import React, { ReactElement, useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 
 export type ScrollTarget = 1|2|3|4|5|string;
 export type ScrollToTarget = (t: ScrollTarget) => void;

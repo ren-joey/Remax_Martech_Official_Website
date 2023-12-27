@@ -2,8 +2,6 @@ import { useTranslation } from 'react-i18next';
 import './footer.scss';
 import Martech from '../../Logos/Martech';
 import Remax from '../../Logos/Remax';
-import LocomotiveScroll from 'locomotive-scroll';
-import { ScrollToTarget } from '../Wrapper';
 import { useContext } from 'react';
 import { GlobDataContext } from '../../../Context/GlobDataProvider';
 

@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import SimpleImgDisplay from '../Images/SimpleImgDisplay';
 import './section.scss';
 import './section3.scss';
 import RectBtn from '../Buttons/RectBtn';
