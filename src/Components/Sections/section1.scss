@@ -7,7 +7,7 @@ $circle: 120vh;
     position: relative;
     overflow: visible;
     background-position: center center;
-    background-size: auto 120%;
+    background-size: 120% 120%;
     transition: 5s ease-out background-size;
 
     .section-container {
@@ -126,7 +126,7 @@ $circle: 120vh;
     }
 
     &.active {
-        background-size: auto 100%;
+        background-size: 100% 100%;
 
         .cloud {
             opacity: 1;

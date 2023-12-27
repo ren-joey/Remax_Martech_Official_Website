@@ -9,6 +9,10 @@
     user-select: none;
 }
 
+.clickable {
+    @extend %button;
+}
+
 @mixin title($size: 4rem, $spacing: 2px, $color: #fff) {
     font-size: $size;
     font-weight: bolder;

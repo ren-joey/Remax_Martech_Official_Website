@@ -106,7 +106,16 @@ const Footer = () => {
                         {t('footer_col_3_title')}
                     </div>
                     <div className="nav-item">
-                        {t('footer_col_3_content')}
+                        {t('footer_col_3_content_1')}
+                    </div>
+                    <div
+                        className="nav-item clickable underline font-bold"
+                        onClick={() => window.open('mailto:sales@martech-eng.com')}
+                    >
+                        {t('footer_col_3_content_2')}
+                    </div>
+                    <div className="nav-item">
+                        {t('footer_col_3_content_3')}
                     </div>
                 </div>
                 <div className="divider"></div>

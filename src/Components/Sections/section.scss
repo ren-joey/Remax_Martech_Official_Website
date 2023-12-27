@@ -9,13 +9,13 @@
     @include xl {
         width: 100%;
         background-repeat: no-repeat;
-        background-size: auto 100%;
+        background-size: 100% 100%;
 
         &.section-1,
         &.section-2,
         &.section-3,
         &.section-4 {
-            height: 1080px;
+            height: 920px;
         }
 
         &.section-1-to-2 {
