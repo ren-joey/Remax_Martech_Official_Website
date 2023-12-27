@@ -59,6 +59,8 @@ const GlobDataProvider = ({ children }:{
     };
 
     useEffect(() => {
+        section.current = 1;
+
         if (scroller) {
             scroller.on('scroll', (args: any) => {
                 if (!scrolling.current) {
