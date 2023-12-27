@@ -5,6 +5,8 @@ import './about-us.scss';
 import SimpleImgDisplay from '../../Components/Images/SimpleImgDisplay';
 import Wrapper from '../../Components/Shared/Wrapper';
 import imgMap from '../../Components/Images/imgMap';
+import { useContext } from 'react';
+import { GlobDataContext } from '../../Context/GlobDataProvider';
 
 const images: string[] = [
     imgMap.about_us_img_1,
@@ -16,6 +18,7 @@ const images: string[] = [
 const Service = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
+    const { setPrevLocation } = useContext(GlobDataContext);
 
     return (
         <Wrapper theme="light">
@@ -26,7 +29,10 @@ const Service = () => {
                         <div className="flex mb-20">
                             <RectBtn
                                 text={t('back_page')}
-                                onClick={() => navigate('/')}
+                                onClick={() => {
+                                    setPrevLocation(3);
+                                    navigate('/');
+                                }}
                             />
                             <div className="content pl-12">
                                 <div className="deco-bar mb-4"></div>
