@@ -80,7 +80,7 @@ const GlobDataProvider = ({ children }:{
                         }
                     } else {
                         if ((section.current < 5 && section.current > 1)
-                            || (section.current === 5 && args.scroll.y < 5800)) {
+                            || (section.current === 5 && args.scroll.y < 5300)) {
                             section.current -= 1;
                             scrollToTarget(section.current as ScrollTarget);
                         }

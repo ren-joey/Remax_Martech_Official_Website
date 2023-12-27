@@ -43,26 +43,28 @@ const Section4 = () => {
                     </div>
                 </div>
                 <div className="half"> 
-                    <div className="port keelung">
-                        <Tag text={t('section_4_port_3')} />
-                    </div>
-                    <div className="port taipei">
-                        <Tag text={t('section_4_port_1')} />
-                    </div>
-                    {/* <div className="port taoyuan">
+                    <div className="taiwan">
+                        <div className="port keelung">
+                            <Tag text={t('section_4_port_3')} />
+                        </div>
+                        <div className="port taipei">
+                            <Tag text={t('section_4_port_1')} />
+                        </div>
+                        {/* <div className="port taoyuan">
                         <Tag text={t('section_4_port_2')} />
                     </div> */}
-                    <div className="port taichung">
-                        <Tag text={t('section_4_port_4')} />
-                    </div>
-                    <div className="port suao">
-                        <Tag text={t('section_4_port_5')} />
-                    </div>
-                    <div className="port anping">
-                        <Tag text={t('section_4_port_6')} />
-                    </div>
-                    <div className="port kaoshiung">
-                        <Tag text={t('section_4_port_7')} />
+                        <div className="port taichung">
+                            <Tag text={t('section_4_port_4')} />
+                        </div>
+                        <div className="port suao">
+                            <Tag text={t('section_4_port_5')} />
+                        </div>
+                        <div className="port anping">
+                            <Tag text={t('section_4_port_6')} />
+                        </div>
+                        <div className="port kaoshiung">
+                            <Tag text={t('section_4_port_7')} />
+                        </div>
                     </div>
                 </div>
             </div>
