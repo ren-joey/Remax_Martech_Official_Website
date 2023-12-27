@@ -4,8 +4,8 @@
     @extend %button;
 
     position: fixed;
+    top: calc(100vh - #{$header * 2});
     right: 0;
-    bottom: $header * 2;
     z-index: $header-z + 1;
 
     > .messager {
