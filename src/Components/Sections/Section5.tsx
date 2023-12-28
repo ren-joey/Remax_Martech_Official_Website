@@ -32,7 +32,10 @@ const Section5 = () => {
         >
             <ShowCases />
 
-            <div className="wrapper">
+            <div
+                className="wrapper"
+                id="services"
+            >
                 
                 <div className="title">
                     <div className="bar"></div>
