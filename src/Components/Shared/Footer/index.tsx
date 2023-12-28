@@ -31,7 +31,7 @@ const Footer = () => {
                     </div>
                     <div
                         className="nav-item clickable"
-                        onClick={() => scrollToTarget(5)}
+                        onClick={() => scrollToTarget('#services')}
                     >
                         {t('footer_col_1_nav_3')}
                     </div>
