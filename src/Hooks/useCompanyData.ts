@@ -96,6 +96,10 @@ const useCompanyData = () => {
                 {
                     img: imgMap.section_7_service_5_img_2,
                     desc: t('section_7_service_5_img_2')
+                },
+                {
+                    img: imgMap.section_7_service_5_img_3,
+                    desc: t('section_7_service_5_img_3')
                 }
             ]
         },
@@ -147,6 +151,10 @@ const useCompanyData = () => {
                 {
                     img: imgMap.section_7_service_8_img_2,
                     desc: t('section_7_service_8_img_2')
+                },
+                {
+                    img: imgMap.section_7_service_8_img_3,
+                    desc: t('section_7_service_8_img_3')
                 }
             ]
         },
