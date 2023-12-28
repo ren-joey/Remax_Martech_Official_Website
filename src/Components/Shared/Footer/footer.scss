@@ -9,7 +9,7 @@
         flex-wrap: wrap;
         margin: 0 auto;
         padding-top: 6rem;
-        width: 992px;
+        width: 1500px;
         color: $light-blue;
 
         .col-block {
@@ -22,6 +22,33 @@
             }
 
             > .nav-item {
+                > .icon {
+                    display: inline-block;
+                    margin-right: 0.5rem;
+                    margin-bottom: -0.2rem;
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+
+                    &.phone {
+                        background-image: url("../../../assets/images/icon/phone_icon.svg");
+                    }
+
+                    &.fax {
+                        background-image: url("../../../assets/images/icon/fax_icon.svg");
+                    }
+
+                    &.mail {
+                        background-image: url("../../../assets/images/icon/mail_icon.svg");
+                    }
+
+                    &.map-pin {
+                        background-image: url("../../../assets/images/icon/map_pin_icon.svg");
+                    }
+                }
+
                 &.clickable {
                     @extend %button;
                 }

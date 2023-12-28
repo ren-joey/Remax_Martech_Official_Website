@@ -14,6 +14,7 @@ import section_7_service_4_img_2 from '../../assets/images/photo/section_7_servi
 import section_7_service_4_img_3 from '../../assets/images/photo/section_7_service_4_img_3.jpg';
 import section_7_service_5_img_1 from '../../assets/images/photo/section_7_service_5_img_1.jpg';
 import section_7_service_5_img_2 from '../../assets/images/photo/section_7_service_5_img_2.jpg';
+import section_7_service_5_img_3 from '../../assets/images/photo/section_7_service_5_img_3.jpg';
 import section_7_service_6_img_1 from '../../assets/images/photo/section_7_service_6_img_1.jpg';
 import section_7_service_6_img_2 from '../../assets/images/photo/section_7_service_6_img_2.jpg';
 import section_7_service_6_img_3 from '../../assets/images/photo/section_7_service_6_img_3.jpg';
@@ -23,6 +24,7 @@ import section_7_service_7_img_3 from '../../assets/images/photo/section_7_servi
 import section_7_service_7_img_4 from '../../assets/images/photo/section_7_service_7_img_4.jpg';
 import section_7_service_8_img_1 from '../../assets/images/photo/section_7_service_8_img_1.jpg';
 import section_7_service_8_img_2 from '../../assets/images/photo/section_7_service_8_img_2.jpg';
+import section_7_service_8_img_3 from '../../assets/images/photo/section_7_service_8_img_3.jpg';
 import section_7_service_9_img_1 from '../../assets/images/photo/section_7_service_9_img_1.jpg';
 import section_7_service_9_img_2 from '../../assets/images/photo/section_7_service_9_img_2.jpg';
 import section_7_service_9_img_3 from '../../assets/images/photo/section_7_service_9_img_3.jpg';
@@ -67,6 +69,7 @@ const ImgMap = {
     section_7_service_4_img_3,
     section_7_service_5_img_1,
     section_7_service_5_img_2,
+    section_7_service_5_img_3,
     section_7_service_6_img_1,
     section_7_service_6_img_2,
     section_7_service_6_img_3,
@@ -76,6 +79,7 @@ const ImgMap = {
     section_7_service_7_img_4,
     section_7_service_8_img_1,
     section_7_service_8_img_2,
+    section_7_service_8_img_3,
     section_7_service_9_img_1,
     section_7_service_9_img_2,
     section_7_service_9_img_3,
