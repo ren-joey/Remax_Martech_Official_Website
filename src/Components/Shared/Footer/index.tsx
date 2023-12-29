@@ -105,6 +105,12 @@ const Footer = () => {
                     >
                         {t('footer_col_2_nav_10')}
                     </div>
+                    <div
+                        className="nav-item clickable"
+                        onClick={() => scrollToTarget('#service_slider_9')}
+                    >
+                        {t('footer_col_2_nav_11')}
+                    </div>
                 </div>
                 <div className="col-block">
                     <div className="title">
