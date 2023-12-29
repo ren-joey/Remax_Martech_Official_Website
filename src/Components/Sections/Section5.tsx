@@ -97,7 +97,7 @@ const Section5 = () => {
                         </div>
                         <div className="service-list mt-2">
                             {
-                                [1, 2].map((val, idx) => (
+                                [1, 2, 3].map((val, idx) => (
                                     <div
                                         className="service-item"
                                         onClick={() => scrollToTarget('#service_slider_9')}

@@ -10,6 +10,7 @@ module.exports = {
         'style',
         'docs',
         'cfg',
+        'init',
         'refactor',
         'perf',
         'test',
