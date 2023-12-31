@@ -3,8 +3,9 @@ import './section.scss';
 import './section1.scss';
 import Martech from '../Logos/Martech';
 import Remax from '../Logos/Remax';
-import { useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import gsap from 'gsap';
+import { APIProviderContext } from '../../Context/APIProvider';
 
 export const localStorageKey = 'REMAX_MARTECH_OFFICIAL_WEBSITE_LOADED';
 
@@ -14,12 +15,13 @@ const Section1 = () => {
         return t('section_1_title').split('\n');
     }, [t]);
     const [prog, setProg] = useState(0);
+    const { loaded } = useContext(APIProviderContext);
 
     useEffect(() => {
         // [DEV]
         // localStorage.removeItem(localStorageKey);
 
-        if (localStorage.getItem(localStorageKey) === '1') {
+        if (localStorage.getItem(localStorageKey) === '1' && loaded) {
             setProg(100);
         } else {
             const val = {prog: 0};
@@ -37,7 +39,7 @@ const Section1 = () => {
                 }
             );
         }
-    }, []);
+    }, [loaded]);
 
     return (
         <div

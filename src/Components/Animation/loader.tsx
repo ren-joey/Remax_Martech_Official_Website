@@ -1,6 +1,7 @@
 import { Assets, AssetsManifest, UnresolvedAsset } from 'pixi.js';
-import ImgMap from '../Images/imgMap';
 import { useTranslation } from 'react-i18next';
+import { useContext } from 'react';
+import { APIProviderContext } from '../../Context/APIProvider';
 
 export interface Pos {
     x: number,
@@ -17,6 +18,7 @@ export interface Project {
 
 const useAssets = () => {
     const { t } = useTranslation();
+    const { photos: ImgMap } = useContext(APIProviderContext);
 
     const projects: Project[] = [
         {

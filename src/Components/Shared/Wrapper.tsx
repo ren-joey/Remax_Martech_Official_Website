@@ -5,9 +5,10 @@ import Footer from './Footer';
 import './wrapper.scss';
 import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 import { ScrollTrigger } from 'gsap/all';
-import { localStorageKey } from '../Sections/Section1';
+import Section1, { localStorageKey } from '../Sections/Section1';
 import { useLocation } from 'react-router-dom';
 import { GlobDataContext } from '../../Context/GlobDataProvider';
+import { APIProviderContext } from '../../Context/APIProvider';
 
 export type ScrollTarget = 1|2|3|4|5|string;
 export type ScrollToTarget = (t: ScrollTarget) => void;
@@ -25,75 +26,91 @@ const Wrapper = ({
     const location = useLocation();
     const containerRef = useRef(null);
     const { setScroller } = useContext(GlobDataContext);
+    const { loaded } = useContext(APIProviderContext);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         let scroller: any;
-        window.scrollTo(0, 0);
 
-        setTimeout(() => {
-            import('locomotive-scroll').then((locomotiveModule) => {
-                scroller = new locomotiveModule.default({
-                    el: containerRef.current as any,
-                    smooth: true
-                });
-
-                scroller.on('scroll', ScrollTrigger.update);
-                ScrollTrigger.scrollerProxy(containerRef.current, {
-                    scrollTop(value) {
-                        return arguments.length
-                            ? scroller.scrollTo(value, 0, 0)
-                            : scroller.scroll.instance.scroll.y;
-                    },
-                    getBoundingClientRect() {
-                        return {
-                            left: 0,
-                            top: 0,
-                            width: window.innerWidth,
-                            height: window.innerHeight
-                        };
+        if (loaded) {
+            setTimeout(() => {
+                import('locomotive-scroll').then((locomotiveModule) => {
+                    scroller = new locomotiveModule.default({
+                        el: containerRef.current as any,
+                        smooth: true
+                    });
+    
+                    scroller.on('scroll', ScrollTrigger.update);
+                    ScrollTrigger.scrollerProxy(containerRef.current, {
+                        scrollTop(value) {
+                            return arguments.length
+                                ? scroller.scrollTo(value, 0, 0)
+                                : scroller.scroll.instance.scroll.y;
+                        },
+                        getBoundingClientRect() {
+                            return {
+                                left: 0,
+                                top: 0,
+                                width: window.innerWidth,
+                                height: window.innerHeight
+                            };
+                        }
+                    });
+    
+                    if (location.pathname === '/') {
+                        if (localStorage.getItem(localStorageKey) !== '1') {
+                            scroller.stop();
+                            setTimeout(() => {
+                                scroller.start();
+                            }, 6000);
+                        } else {
+                            // section.current += 1;
+                            // scroller?.scrollTo(`#section-${section.current}`, { offset: 100 });
+                            // scroller.stop();
+                            // setTimeout(() => scroller.start(), 3000);
+                        }
+    
+                        setScroller(scroller);
                     }
                 });
-
-                if (location.pathname === '/') {
-                    if (localStorage.getItem(localStorageKey) !== '1') {
-                        scroller.stop();
-                        setTimeout(() => {
-                            scroller.start();
-                        }, 6000);
-                    } else {
-                        // section.current += 1;
-                        // scroller?.scrollTo(`#section-${section.current}`, { offset: 100 });
-                        // scroller.stop();
-                        // setTimeout(() => scroller.start(), 3000);
-                    }
-
-                    setScroller(scroller);
-                }
-            });
-        }, 100);
+            }, 10);
+        }
 
         return () => {
             if (scroller) scroller.destroy();
         };
-    }, []);
+    }, [loaded]);
 
     return (
         <div className="main-wrapper">
-            <Header theme={theme} />
-            <div
-                id="scroll-container"
-                className="local-scroll-container"
-                ref={containerRef}
-            >
-                { children }
+            {
+                loaded ? (
+                    <>
+                        <Header theme={theme} />
+                        <div
+                            id="scroll-container"
+                            className="local-scroll-container"
+                            ref={containerRef}
+                        >
+                            { children }
 
-                {
-                    location.pathname === '/' ? (
-                        <Footer />
-                    ) : ''
-                }
-            </div>
-            <Messager />
+                            {
+                                location.pathname === '/' ? (
+                                    <Footer />
+                                ) : ''
+                            }
+                        </div>
+                        <Messager />
+                    </>
+                ) : (
+                    <div className="scroll-locker">
+                        <Section1 />
+                    </div>
+                )
+            }
         </div>
     );
 };

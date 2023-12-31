@@ -1,3 +1,5 @@
+@import "../../based";
+
 html.has-scroll-smooth {
     backface-visibility: hidden;
     transform: translateZ(0);
@@ -5,4 +7,13 @@ html.has-scroll-smooth {
 
 .local-scroll-container {
     perspective: 1px;
+}
+
+.scroll-locker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: $cover-z;
 }

@@ -4,21 +4,23 @@ import { useTranslation } from 'react-i18next';
 import './about-us.scss';
 import SimpleImgDisplay from '../../Components/Images/SimpleImgDisplay';
 import Wrapper from '../../Components/Shared/Wrapper';
-import imgMap from '../../Components/Images/imgMap';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { GlobDataContext } from '../../Context/GlobDataProvider';
-
-const images: string[] = [
-    imgMap.about_us_img_1,
-    imgMap.about_us_img_2,
-    imgMap.about_us_img_3,
-    imgMap.about_us_img_4
-];
+import { APIProviderContext } from '../../Context/APIProvider';
 
 const Service = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
     const { setPrevLocation } = useContext(GlobDataContext);
+    const { photos: ImgMap } = useContext(APIProviderContext);
+    const images = useMemo(() => {
+        return [
+            ImgMap.about_us_img_1,
+            ImgMap.about_us_img_2,
+            ImgMap.about_us_img_3,
+            ImgMap.about_us_img_4
+        ];
+    }, [ImgMap]);
 
     return (
         <Wrapper theme="light">

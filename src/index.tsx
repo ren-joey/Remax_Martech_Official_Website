@@ -7,6 +7,7 @@ import './index.css';
 import './i18n';
 import gsap from 'gsap';
 import { ScrollToPlugin, ScrollTrigger } from 'gsap/all';
+import APIProvider from './Context/APIProvider';
 
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
@@ -17,7 +18,9 @@ const root = ReactDOM.createRoot(
 root.render(
     // <React.StrictMode>
     <GlobDataProvider>
-        <Router />
+        <APIProvider>
+            <Router />
+        </APIProvider>
     </GlobDataProvider>
     // </React.StrictMode>
 );
