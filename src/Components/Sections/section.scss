@@ -3,69 +3,55 @@
 .section {
     @extend %section;
 
+    overflow: hidden;
+    width: 100%;
     background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     background-color: $dark-blue;
 
-    @include xl {
-        width: 100%;
-        background-repeat: no-repeat;
+    &.section-1,
+    &.section-2,
+    &.section-3,
+    &.section-4 {
+        height: 920px;
+    }
+
+    &.section-1-to-2 {
+        height: 500px;
+        background-image: url("../../assets/images/bg/section-1-to-2.png");
         background-size: 100% 100%;
+    }
 
-        &.section-1,
-        &.section-2,
-        &.section-3,
-        &.section-4 {
-            height: 920px;
-        }
+    &.section-2-to-3 {
+        height: 300px;
+        background-image: url("../../assets/images/bg/section-2-to-3.png");
+        background-size: 100% 100%;
+    }
 
-        &.section-1-to-2 {
-            height: 500px;
-            background-size: 100% 100%;
-        }
+    &.section-3-to-4 {
+        height: 198px;
+        background-image: url("../../assets/images/bg/section-3-to-4.png");
+    }
 
-        &.section-2-to-3 {
-            height: 300px;
-            background-size: 100% 100%;
-        }
-
-        &.section-3-to-4 {
-            height: 198px;
-        }
-
-        &.section-4-to-5 {
-            height: 873px;
-        }
+    &.section-4-to-5 {
+        height: 873px;
+        background-image: url("../../assets/images/bg/section-4-to-5.png");
     }
 
     &.section-1 {
         background-image: url("../../assets/images/bg/section-1-sky.png");
     }
 
-    &.section-1-to-2 {
-        background-image: url("../../assets/images/bg/section-1-to-2.png");
-    }
-
     &.section-2 {
         background-image: url("../../assets/images/bg/section-2-ocean-surface.png");
-    }
-
-    &.section-2-to-3 {
-        background-image: url("../../assets/images/bg/section-2-to-3.png");
     }
 
     &.section-3 {
         background-image: url("../../assets/images/bg/section-3-under-water.png");
     }
 
-    &.section-3-to-4 {
-        background-image: url("../../assets/images/bg/section-3-to-4.png");
-    }
-
     &.section-4 {
         background-image: url("../../assets/images/bg/section-4-taiwan.png");
-    }
-
-    &.section-4-to-5 {
-        background-image: url("../../assets/images/bg/section-4-to-5.png");
     }
 }
