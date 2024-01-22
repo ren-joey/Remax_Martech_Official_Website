@@ -24,15 +24,12 @@ const Wrapper = ({
 }: WrapperProps) => {
     const location = useLocation();
     const containerRef = useRef(null);
-    const { setScroller } = useContext(GlobDataContext);
+    const { setScroller, device } = useContext(GlobDataContext);
+    const prevDevice = useRef(device);
 
     useEffect(() => {
         let scroller: any;
         window.scrollTo(0, 0);
-
-        window.onresize = () => {
-            window.location.reload();
-        };
 
         setTimeout(() => {
             import('locomotive-scroll').then((locomotiveModule) => {
@@ -80,6 +77,13 @@ const Wrapper = ({
             if (scroller) scroller.destroy();
         };
     }, []);
+
+    useEffect(() => {
+        if (device !== undefined && device !== prevDevice.current) {
+            window.location.reload();
+        }
+        prevDevice.current = device;
+    }, [device]);
 
     return (
         <div className="main-wrapper">
