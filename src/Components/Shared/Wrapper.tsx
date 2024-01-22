@@ -79,7 +79,9 @@ const Wrapper = ({
     }, []);
 
     useEffect(() => {
-        if (device !== undefined && device !== prevDevice.current) {
+        if (device !== undefined
+            && prevDevice.current !== undefined
+            && device !== prevDevice.current) {
             window.location.reload();
         }
         prevDevice.current = device;
