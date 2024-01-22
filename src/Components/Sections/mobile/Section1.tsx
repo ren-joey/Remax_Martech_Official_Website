@@ -3,8 +3,7 @@ import './section.scss';
 import './section1.scss';
 import Martech from '../../Logos/Martech';
 import Remax from '../../Logos/Remax';
-import { useEffect, useMemo, useState } from 'react';
-import gsap from 'gsap';
+import { useMemo } from 'react';
 
 export const localStorageKey = 'REMAX_MARTECH_OFFICIAL_WEBSITE_LOADED';
 
