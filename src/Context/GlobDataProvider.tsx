@@ -83,6 +83,13 @@ const GlobDataProvider = ({ children }:{
     };
 
     useEffect(() => {
+        window.onresize = refreshDevice;
+        return () => {
+            window.onresize = () => {};
+        };
+    }, []);
+
+    useEffect(() => {
         section.current = 1;
         const device = refreshDevice();
 
