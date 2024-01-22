@@ -1,10 +1,10 @@
-import './messager.scss';
+import './messenger.scss';
 
-const Messager = () => {
+const Messenger = () => {
     return (
-        <div className="messager-container">
+        <div className="messenger-container">
             <div
-                className="messager"
+                className="messenger"
                 onClick={() => window.open('mailto:sales@martech-eng.com')}
             >
                 <div className="icon">
@@ -18,4 +18,4 @@ const Messager = () => {
     );
 };
 
-export default Messager;
+export default Messenger;

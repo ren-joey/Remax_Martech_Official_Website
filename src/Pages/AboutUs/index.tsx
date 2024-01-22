@@ -18,11 +18,14 @@ const images: string[] = [
 const Service = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
-    const { setPrevLocation } = useContext(GlobDataContext);
+    const { setPrevLocation, device } = useContext(GlobDataContext);
 
     return (
         <Wrapper theme="light">
-            <div id="about-us">
+            <div
+                id="about-us"
+                className={device}
+            >
                 <div className="service-container">
                     <div className="banner"></div>
                     <div className="wrapper">

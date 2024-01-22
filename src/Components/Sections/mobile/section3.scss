@@ -1,0 +1,48 @@
+@import "../../../based";
+
+.section-m-3 {
+    position: relative;
+    height: 100%;
+
+    .wrapper {
+        margin: 0 2rem;
+
+        .image-container {
+            // margin: 0 auto;
+            width: 200px;
+
+            .about-us-photo {
+                padding-bottom: calc(100% / 385 * 500);
+                width: 100%;
+                background-image: url("../../../assets/images/photo/about-us-photo.jpg");
+                background-position: center 0;
+                background-size: auto 100%;
+                box-shadow: 30px 100px 100px rgba(0, 0, 0, 0.6);
+            }
+        }
+
+        .title {
+            font-size: 2.4rem;
+            font-weight: bolder;
+            color: $white;
+            text-transform: uppercase;
+            text-shadow: 15px 30px 14px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: bolder;
+            color: $white;
+            text-shadow: 15px 30px 14px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .content {
+            font-size: 1rem;
+            white-space: pre-line;
+            color: $white;
+            text-shadow: 15px 30px 14px rgba(0, 0, 0, 0.3);
+        }
+    }
+}

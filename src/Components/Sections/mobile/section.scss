@@ -1,0 +1,48 @@
+@import "../../../based";
+
+.section-m {
+    background-position: top center;
+    background-size: 100% 100%;
+    background-color: $dark-blue;
+
+    &.section-m-1 {
+        background-image: url("../../../assets/images/bg/section-1-sky.png");
+    }
+
+    &.section-m-1-to-2 {
+        height: $header * 2;
+        background-image: url("../../../assets/images/bg/section-1-to-2.png");
+    }
+
+    &.section-m-2 {
+        background-image: url("../../../assets/images/bg/section-2-ocean-surface.png");
+    }
+
+    &.section-m-2-to-3 {
+        height: $header * 2;
+        background-image: url("../../../assets/images/bg/section-2-to-3.png");
+        background-size: auto 100%;
+    }
+
+    &.section-m-3 {
+        background-image: url("../../../assets/images/bg/section-3-under-water.png");
+        background-size: auto 100%;
+    }
+
+    &.section-m-3-to-4 {
+        height: $header * 2;
+        background-image: url("../../../assets/images/bg/section-3-to-4.png");
+        background-size: auto 100%;
+    }
+
+    &.section-m-4 {
+        background-image: url("../../../assets/images/bg/section-4-taiwan.png");
+        background-size: auto 100%;
+    }
+
+    &.section-m-4-to-5 {
+        height: $header * 2;
+        background-image: url("../../../assets/images/bg/section-4-to-5.png");
+        background-size: 100% auto;
+    }
+}
