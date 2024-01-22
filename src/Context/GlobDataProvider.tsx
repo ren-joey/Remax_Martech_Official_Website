@@ -3,8 +3,11 @@ import React, { ReactElement, useEffect, useRef, useState } from 'react';
 
 export type ScrollTarget = 1|2|3|4|5|string;
 export type ScrollToTarget = (t: ScrollTarget) => void;
+export type Device = undefined|'desktop'|'mobile';
 
 interface GlobDataContextProps {
+    device: Device
+    // setDevice: React.Dispatch<React.SetStateAction<Device>>
     scroller: null|LocomotiveScroll
     setScroller: React.Dispatch<React.SetStateAction<null|LocomotiveScroll>>
     scrollToTarget: ScrollToTarget,
@@ -14,6 +17,7 @@ interface GlobDataContextProps {
 }
 
 export const GlobDataContext = React.createContext<GlobDataContextProps>({
+    device: undefined,
     scroller: null,
     setScroller: () => {},
     scrollToTarget: () => {},
@@ -34,6 +38,7 @@ const GlobDataProvider = ({ children }:{
     const prevPos = useRef(window.scrollY);
     const [pos, setPos] = useState(window.scrollY);
     const [scroller, setScroller] = useState<null|LocomotiveScroll>(null);
+    const [device, setDevice] = useState<Device>(undefined);
 
     const scrollToTarget: ScrollToTarget = (target) => {
         if (scroller) {
@@ -67,26 +72,39 @@ const GlobDataProvider = ({ children }:{
         }
     };
 
+    const refreshDevice = () => {
+        let device: Device = undefined;
+        const width = Math.min(window.innerWidth, screen.width);
+        if (width < 1440) {
+            device = 'mobile';
+        } else device = 'desktop';
+        setDevice(device);
+        return device;
+    };
+
     useEffect(() => {
         section.current = 1;
+        const device = refreshDevice();
 
         if (scroller) {
-            scroller.on('scroll', (args: any) => {
-                if (!scrolling.current) {
-                    if (prevPos.current < args.scroll.y) {
-                        if (section.current < 5) {
-                            section.current += 1;
-                            scrollToTarget(section.current as ScrollTarget);
-                        }
-                    } else {
-                        if ((section.current < 5 && section.current > 1)
-                            || (section.current === 5 && args.scroll.y < 5300)) {
-                            section.current -= 1;
-                            scrollToTarget(section.current as ScrollTarget);
+            if (device === 'desktop') {
+                scroller.on('scroll', (args: any) => {
+                    if (!scrolling.current) {
+                        if (prevPos.current < args.scroll.y) {
+                            if (section.current < 5) {
+                                section.current += 1;
+                                scrollToTarget(section.current as ScrollTarget);
+                            }
+                        } else {
+                            if ((section.current < 5 && section.current > 1)
+                                || (section.current === 5 && args.scroll.y < 5300)) {
+                                section.current -= 1;
+                                scrollToTarget(section.current as ScrollTarget);
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
 
             scroller.on('scroll', (args: any) => {
                 setPos((y) => {
@@ -105,6 +123,7 @@ const GlobDataProvider = ({ children }:{
     return (
         <GlobDataContext.Provider
             value={{
+                device,
                 scroller,
                 setScroller,
                 scrollToTarget,
