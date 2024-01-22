@@ -17,7 +17,7 @@ interface HeaderProps {
 const Header = ({ theme='dark' }: HeaderProps) => {
     const [menuState, setMenuState] = useState(false);
     const navigate = useNavigate();
-    const { scrollToTarget, pos } = useContext(GlobDataContext);
+    const { scrollToTarget, pos, device } = useContext(GlobDataContext);
     const location = useLocation();
 
     const options: MenuOption[] = [
@@ -90,8 +90,8 @@ const Header = ({ theme='dark' }: HeaderProps) => {
     ];
 
     return (
-        <div className={`header-container ${pos > 80 && menuState === false ? 'active' : ''} ${theme}`}>
-            <div className="pillar left align-"></div>
+        <div className={`header-container ${pos > 80 && menuState === false ? 'active' : ''} ${theme} ${device}`}>
+            { device === 'desktop' ? <div className="pillar left"></div> : <></> }
             <div className="header">
                 <div className="flex items-center">
                     <MenuBtn
@@ -100,23 +100,40 @@ const Header = ({ theme='dark' }: HeaderProps) => {
                         onClickWhenOpen={() => setMenuState(false)}
                         theme={theme}
                     />
-                    <div
-                        className="mx-auto flex"
-                        onClick={() => {
-                            if (location.pathname === '/') {
-                                scrollToTarget(1);
-                            } else {
-                                navigate('/');
-                            }
-                        }}
-                    >
-                        <div className="logo-container">
-                            <Martech color={theme === 'dark' ? 'white' : 'blue'} />
-                        </div>
-                        <div className="logo-container pt-1">
-                            <Remax color={theme === 'dark' ? 'white' : 'blue'} />
-                        </div>
-                    </div>
+                    {
+                        device === 'desktop' ? (
+                            <div
+                                className="mx-auto flex"
+                                onClick={() => {
+                                    if (location.pathname === '/') {
+                                        scrollToTarget(1);
+                                    } else {
+                                        navigate('/');
+                                    }
+                                }}
+                            >
+                                <div className="logo-container">
+                                    <Martech color={theme === 'dark' ? 'white' : 'blue'} />
+                                </div>
+                                <div className="logo-container pt-1">
+                                    <Remax color={theme === 'dark' ? 'white' : 'blue'} />
+                                </div>
+                            </div>
+                        ) : (
+                            <div
+                                className="mx-auto flex"
+                                onClick={() => {
+                                    if (location.pathname === '/') {
+                                        scrollToTarget(1);
+                                    } else {
+                                        navigate('/');
+                                    }
+                                }}
+                            >
+                                <div className="logo-icon-mobile"></div>
+                            </div>
+                        )
+                    }
                     <LangBtn theme={theme} />
                 </div>
             </div>
@@ -127,7 +144,7 @@ const Header = ({ theme='dark' }: HeaderProps) => {
                     theme={theme}
                 />
             </div>
-            <div className="pillar right"></div>
+            { device === 'desktop' ? <div className="pillar right"></div> : <></> }
         </div>
     );
 };

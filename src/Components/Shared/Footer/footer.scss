@@ -71,4 +71,71 @@
             background-color: $grey;
         }
     }
+
+    &.mobile {
+        > .footer-container {
+            flex-direction: column;
+            width: 100%;
+
+            .col-block {
+                padding: 0 2rem 2rem;
+
+                > .title {
+                    margin-bottom: 1rem;
+                    padding-bottom: 0;
+                    font-weight: bold;
+                    border-bottom: 1px solid;
+                }
+
+                > .nav-item {
+                    > .icon {
+                        display: inline-block;
+                        margin-right: 0.5rem;
+                        margin-bottom: -0.2rem;
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+
+                        &.phone {
+                            background-image: url("../../../assets/images/icon/phone_icon.svg");
+                        }
+
+                        &.fax {
+                            background-image: url("../../../assets/images/icon/fax_icon.svg");
+                        }
+
+                        &.mail {
+                            background-image: url("../../../assets/images/icon/mail_icon.svg");
+                        }
+
+                        &.map-pin {
+                            background-image: url("../../../assets/images/icon/map_pin_icon.svg");
+                        }
+                    }
+
+                    &.clickable {
+                        @extend %button;
+                    }
+
+                    font-size: 0.9rem;
+                    white-space: pre-line;
+                    text-transform: uppercase;
+                    line-height: 2rem;
+                }
+
+                > .logo-container {
+                    width: 200px;
+                }
+            }
+
+            .divider {
+                margin: 2rem 0;
+                width: 100%;
+                height: 1px;
+                background-color: $grey;
+            }
+        }
+    }
 }

@@ -1,0 +1,91 @@
+@import "../../../based";
+
+$border: 1px solid rgba($white, 0.5);
+
+.section-m-1 {
+    position: relative;
+    padding: #{$header * 2} 1rem $header;
+    background-position: center center;
+    background-size: 100% 100%;
+
+    .section-container {
+        position: relative;
+        width: 100%;
+        background-color: rgba($white, 0);
+
+        .section-content {
+            position: relative;
+            font-size: 2.4rem;
+            font-weight: bolder;
+            text-align: center;
+            white-space: pre-line;
+            color: $white;
+            text-shadow:
+                0 0 50px $logo-blue,
+                0 0 50px $logo-blue,
+                0 0 50px $logo-blue;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo-area {
+            display: flex;
+            width: 100%;
+
+            .active-logo {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@keyframes draw-svg {
+    0% {
+        stroke-dasharray: 330;
+        stroke-dashoffset: 330;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(180);
+    }
+
+    100% {
+        transform: rotate(544deg);
+    }
+}
+
+@keyframes scroll-down {
+    0% {
+        transform: translateY(0%);
+    }
+
+    5% {
+        transform: translateY(20%);
+    }
+
+    10% {
+        transform: translateY(0%);
+    }
+
+    15% {
+        transform: translateY(20%);
+    }
+
+    20% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}

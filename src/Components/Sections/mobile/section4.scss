@@ -1,0 +1,34 @@
+@import "../../../based";
+
+.section-m-4 {
+    .wrapper {
+        margin: 0 2rem;
+    }
+
+    .title {
+        font-size: 2.4rem;
+        font-weight: bolder;
+        white-space: pre-line;
+        line-height: 3rem;
+        color: $white;
+        letter-spacing: bolder;
+        text-transform: uppercase;
+    }
+
+    .slide-show {
+        margin-right: -20%;
+        width: 120%;
+    }
+
+    .taiwan {
+        position: relative;
+        margin-top: 190px;
+        margin-left: 190px;
+        width: 376px * 0.8;
+        height: 726px * 0.8;
+        background-image: url("../../../assets/images/bg/section-4-taiwan-effect.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        z-index: $page;
+    }
+}

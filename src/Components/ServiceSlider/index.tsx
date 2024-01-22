@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import SideBtn from '../Buttons/SideBtn';
 import BgImgDisplay from '../Images/BgImgDisplay';
 import './service-slider.scss';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { GlobDataContext } from '../../Context/GlobDataProvider';
 
 export interface ServiceSliderProps {
     title: string,
@@ -20,6 +21,7 @@ const ServiceSlider = ({
     imgs
 }: ServiceSliderProps) => {
     const navigate = useNavigate();
+    const { device } = useContext(GlobDataContext);
     const { t } = useTranslation();
     const len = imgs.length > 3 ? 3 : imgs.length;
     const [mImgs, setMImgs] = useState(imgs.slice(0, len - 1));
@@ -48,7 +50,7 @@ const ServiceSlider = ({
     };
 
     return (
-        <div className="service-slider">
+        <div className={`service-slider ${device}`}>
             <div className="title mb-4">
                 {title}
             </div>
@@ -56,35 +58,39 @@ const ServiceSlider = ({
                 <div className="desc mb-8">
                     {desc}
                 </div>
-                <div className="control mb-8">
-                    <div className="mr-auto">
-                        <RectBtn
-                            text={t('more_details')}
-                            onClick={() => navigate(pathname)}
-                        />
-                    </div>
+                {
+                    device === 'desktop' ? (
+                        <div className="control mb-8">
+                            <div className="mr-auto">
+                                <RectBtn
+                                    text={t('more_details')}
+                                    onClick={() => navigate(pathname)}
+                                />
+                            </div>
 
-                    {
-                        len > 1 ? (
-                            <div className="btn-container mr-2">
-                                <SideBtn
-                                    side="left"
-                                    onClick={prevImg}
-                                />
-                            </div>
-                        ) : ''
-                    }
-                    {
-                        len > 1 ? (
-                            <div className="btn-container">
-                                <SideBtn
-                                    side="right"
-                                    onClick={nextImg}
-                                />
-                            </div>
-                        ) : ''
-                    }
-                </div>
+                            {
+                                len > 1 ? (
+                                    <div className="btn-container mr-2">
+                                        <SideBtn
+                                            side="left"
+                                            onClick={prevImg}
+                                        />
+                                    </div>
+                                ) : ''
+                            }
+                            {
+                                len > 1 ? (
+                                    <div className="btn-container">
+                                        <SideBtn
+                                            side="right"
+                                            onClick={nextImg}
+                                        />
+                                    </div>
+                                ) : ''
+                            }
+                        </div>
+                    ) : <></>
+                }
                 <div className="image-slides mt-4">
                     {
                         mImgs.map((img, idx) => (
@@ -101,6 +107,17 @@ const ServiceSlider = ({
                         ))
                     }
                 </div>
+
+                {
+                    device === 'mobile' ? (
+                        <div className="mr-auto mt-8">
+                            <RectBtn
+                                text={t('more_details')}
+                                onClick={() => navigate(pathname)}
+                            />
+                        </div>
+                    ) : <></>
+                }
             </div>
             <div className="image-side">
                 <div className="image-container">

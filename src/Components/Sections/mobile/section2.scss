@@ -1,0 +1,52 @@
+@import "../../../based";
+
+.section-m-2 {
+    position: relative;
+    background-position: center top 98%;
+    background-size: auto 220%;
+
+    .wrapper {
+        position: relative;
+        padding: $header 2rem;
+        z-index: $page;
+
+        .ship {
+            position: absolute;
+            top: -150px * 0.5;
+            right: 0;
+            width: 100%;
+            height: 150px * 0.5;
+            background-image: url("../../../assets/images/bg/ship.png");
+            background-position: left 50px bottom;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            z-index: $page + 1;
+        }
+
+        .half {
+            position: relative;
+
+            .logo-area {
+                width: 100%;
+            }
+
+            .title {
+                font-size: 4rem;
+                font-weight: bolder;
+                white-space: pre-line;
+                line-height: 4rem;
+                color: $white;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+
+            .desc {
+                font-size: 2rem;
+                white-space: pre-line;
+                line-height: 2.4rem;
+                color: $white;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}
