@@ -2,6 +2,8 @@ import { useTranslation } from 'react-i18next';
 import './menu.scss';
 import { Theme } from '../Shared/Header';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { GlobDataContext } from '../../Context/GlobDataProvider';
 
 
 export interface MenuOption {
@@ -27,11 +29,12 @@ const Menu = ({
     const { t } = useTranslation();
     const location = useLocation();
     const navigate = useNavigate();
+    const { device } = useContext(GlobDataContext);
 
     return (
         <div
             id="menu"
-            className={theme}
+            className={`${theme} ${device}`}
         >
             <div className="menu-container">
                 {

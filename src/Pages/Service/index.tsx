@@ -13,7 +13,7 @@ const Service = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
     const { services } = useCompanyData();
-    const { setPrevLocation } = useContext(GlobDataContext);
+    const { setPrevLocation, device } = useContext(GlobDataContext);
 
     useEffect(() => {
         if (!param.service) {
@@ -23,7 +23,10 @@ const Service = () => {
 
     return (
         <Wrapper theme="light">
-            <div id="service">
+            <div
+                id="service"
+                className={device}
+            >
                 <div className="service-container">
                     <div className="banner"></div>
                     <div className="wrapper">

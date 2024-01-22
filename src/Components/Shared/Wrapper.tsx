@@ -1,4 +1,4 @@
-import Messager from '../Messager';
+import Messenger from '../Messenger';
 import { useContext, useEffect, useRef } from 'react';
 import Header, { Theme } from './Header';
 import Footer from './Footer';
@@ -29,6 +29,10 @@ const Wrapper = ({
     useEffect(() => {
         let scroller: any;
         window.scrollTo(0, 0);
+
+        window.onresize = () => {
+            window.location.reload();
+        };
 
         setTimeout(() => {
             import('locomotive-scroll').then((locomotiveModule) => {
@@ -93,7 +97,7 @@ const Wrapper = ({
                     ) : ''
                 }
             </div>
-            <Messager />
+            <Messenger />
         </div>
     );
 };

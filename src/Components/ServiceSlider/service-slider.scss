@@ -47,4 +47,24 @@
         width: 40%;
         max-width: 400px;
     }
+
+    &.mobile {
+        .title {
+            @include title(1.3rem, 1px);
+        }
+
+        > .content-side {
+            padding-right: 0;
+
+            > .image-slides {
+                .image-container {
+                    margin: 0 0.5rem;
+                }
+            }
+        }
+
+        > .image-side {
+            display: none;
+        }
+    }
 }

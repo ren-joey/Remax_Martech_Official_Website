@@ -8,10 +8,10 @@ import { GlobDataContext } from '../../../Context/GlobDataProvider';
 
 const Footer = () => {
     const { t } = useTranslation();
-    const { scrollToTarget } = useContext(GlobDataContext);
+    const { scrollToTarget, device } = useContext(GlobDataContext);
 
     return (
-        <div className="footer">
+        <div className={`footer ${device}`}>
             <div className="footer-container">
                 <div className="col-block">
                     <div className="title">
@@ -88,30 +88,58 @@ const Footer = () => {
                     >
                         {t('footer_col_2_nav_8')}
                     </div>
+                    {
+                        device === 'mobile' ? (
+                            <>
+                                <div
+                                    className="nav-item clickable"
+                                    onClick={() => scrollToTarget('#service_slider_9')}
+                                >
+                                    {t('footer_col_2_nav_9')}
+                                </div>
+                                <div
+                                    className="nav-item clickable"
+                                    onClick={() => scrollToTarget('#service_slider_9')}
+                                >
+                                    {t('footer_col_2_nav_10')}
+                                </div>
+                                <div
+                                    className="nav-item clickable"
+                                    onClick={() => scrollToTarget('#service_slider_9')}
+                                >
+                                    {t('footer_col_2_nav_11')}
+                                </div>
+                            </>
+                        ) : <></>
+                    }
                 </div>
-                <div className="col-block">
-                    <div className="title">
-                        {'\u00A0'}
-                    </div>
-                    <div
-                        className="nav-item clickable"
-                        onClick={() => scrollToTarget('#service_slider_9')}
-                    >
-                        {t('footer_col_2_nav_9')}
-                    </div>
-                    <div
-                        className="nav-item clickable"
-                        onClick={() => scrollToTarget('#service_slider_9')}
-                    >
-                        {t('footer_col_2_nav_10')}
-                    </div>
-                    <div
-                        className="nav-item clickable"
-                        onClick={() => scrollToTarget('#service_slider_9')}
-                    >
-                        {t('footer_col_2_nav_11')}
-                    </div>
-                </div>
+                {
+                    device === 'desktop' ? (
+                        <div className="col-block">
+                            <div className="title">
+                                {'\u00A0'}
+                            </div>
+                            <div
+                                className="nav-item clickable"
+                                onClick={() => scrollToTarget('#service_slider_9')}
+                            >
+                                {t('footer_col_2_nav_9')}
+                            </div>
+                            <div
+                                className="nav-item clickable"
+                                onClick={() => scrollToTarget('#service_slider_9')}
+                            >
+                                {t('footer_col_2_nav_10')}
+                            </div>
+                            <div
+                                className="nav-item clickable"
+                                onClick={() => scrollToTarget('#service_slider_9')}
+                            >
+                                {t('footer_col_2_nav_11')}
+                            </div>
+                        </div>
+                    ) : <></>
+                }
                 <div className="col-block">
                     <div className="title">
                         {t('footer_col_3_title')}
@@ -131,16 +159,28 @@ const Footer = () => {
                         <div className="icon mail"></div>
                         {t('footer_col_3_content_3')}
                     </div>
+                    {
+                        device === 'mobile' ? (
+                            <div className="nav-item">
+                                <div className="icon map-pin"></div>
+                                {t('footer_col_3_content_4')}
+                            </div>
+                        ) : <></>
+                    }
                 </div>
-                <div className="col-block">
-                    <div className="title">
-                        {'\u00A0'}
-                    </div>
-                    <div className="nav-item">
-                        <div className="icon map-pin"></div>
-                        {t('footer_col_3_content_4')}
-                    </div>
-                </div>
+                {
+                    device === 'desktop' ? (
+                        <div className="col-block">
+                            <div className="title">
+                                {'\u00A0'}
+                            </div>
+                            <div className="nav-item">
+                                <div className="icon map-pin"></div>
+                                {t('footer_col_3_content_4')}
+                            </div>
+                        </div>
+                    ) : <></>
+                }
                 <div className="divider"></div>
                 <div className="col-block w-full text-center">
                     <div className="nav-item">

@@ -45,4 +45,41 @@ $deco-bar-h: 5px;
             }
         }
     }
+
+    &.mobile {
+        .service-container {
+            .banner {
+                background-position: center center;
+            }
+
+            .wrapper {
+                margin: 0;
+                padding: 4rem 2rem;
+                width: 100%;
+
+                > .flex {
+                    flex-direction: column;
+                }
+
+                .content {
+                    padding-left: 0;
+
+                    .deco-bar {
+                        display: none;
+                    }
+
+                    .title {
+                        margin-top: 2rem;
+                    }
+                }
+
+                .imgs-container {
+                    display: grid;
+                    column-gap: 2rem;
+                    row-gap: 4rem;
+                    grid-template-columns: repeat(1, 1fr);
+                }
+            }
+        }
+    }
 }

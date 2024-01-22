@@ -2,10 +2,14 @@
 import './tag.scss';
 
 interface TagProps {
-    text: string
+    text: string,
+    ping?: boolean
 }
 
-const Tag = ({text}: TagProps) => {
+const Tag = ({
+    text,
+    ping = true
+}: TagProps) => {
     const type = Math.ceil(Math.random() * 3);
 
     return (
@@ -15,8 +19,14 @@ const Tag = ({text}: TagProps) => {
                 <div className="text">
                     {text}
                 </div>
-                <div className="ping"></div>
-                <div className="dot"></div>
+                {
+                    ping ? (
+                        <>
+                            <div className="ping"></div>
+                            <div className="dot"></div>
+                        </>
+                    ) : <></>
+                }
             </div>
         </div>
     );

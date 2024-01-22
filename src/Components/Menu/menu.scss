@@ -92,4 +92,15 @@ $light-item-border: 1px dotted rgba($blue, 0.3);
             }
         }
     }
+
+    &.mobile {
+        .menu-container {
+            .menu-item {
+                @extend %button;
+
+                font-size: 1rem;
+                white-space: wrap;
+            }
+        }
+    }
 }
