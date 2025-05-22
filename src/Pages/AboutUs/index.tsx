@@ -27,7 +27,9 @@ const Service = () => {
                 className={device}
             >
                 <div className="service-container">
-                    <div className="banner"></div>
+                    <div className="banner">
+                        <div className="iso-area"></div>
+                    </div>
                     <div className="wrapper">
                         <div className="flex mb-20">
                             <RectBtn

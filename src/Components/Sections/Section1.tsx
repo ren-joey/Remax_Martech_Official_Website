@@ -45,6 +45,7 @@ const Section1 = () => {
             className={`section section-1 ${prog === 100 ? 'active' : ''}`}
         >
             <div className="section-container">
+                <div className="iso-area"></div>
                 <div className="logo-area">
                     <div className="flex-1 relative">
                         <div className="active-logo">

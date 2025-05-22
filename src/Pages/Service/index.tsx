@@ -28,7 +28,9 @@ const Service = () => {
                 className={device}
             >
                 <div className="service-container">
-                    <div className="banner"></div>
+                    <div className="banner">
+                        <div className="iso-area"></div>
+                    </div>
                     <div className="wrapper">
                         <div className="flex mb-20">
                             <RectBtn
@@ -55,7 +57,7 @@ const Service = () => {
                             </div>
                         </div>
 
-                        <div className="imgs-container flex pb-20">
+                        <div className="imgs-container flex mb-20">
                             {
                                 param.service ? (
                                     services[+param.service - 1].imgs.map((img, idx) => (

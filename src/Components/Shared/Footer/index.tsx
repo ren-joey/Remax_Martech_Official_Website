@@ -4,6 +4,7 @@ import Martech from '../../Logos/Martech';
 import Remax from '../../Logos/Remax';
 import { useContext } from 'react';
 import { GlobDataContext } from '../../../Context/GlobDataProvider';
+import Iso from '../../Logos/Iso';
 
 
 const Footer = () => {
@@ -187,13 +188,16 @@ const Footer = () => {
                         {t('footer_copyright')}
                     </div>
                 </div>
-                <div className="col-block w-full flex justify-center mt-4 mb-16">
+                <div className="col-block w-full flex justify-center mt-4">
                     <div className="logo-container">
                         <Martech />
                     </div>
                     <div className="logo-container">
                         <Remax />
                     </div>
+                </div>
+                <div className="col-block w-full flex justify-center mt-4 mb-16">
+                    <Iso />
                 </div>
             </div>
         </div>

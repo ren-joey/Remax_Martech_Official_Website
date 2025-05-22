@@ -27,4 +27,15 @@
             background-image: url("../../assets/images/logo/martech_blue.png");
         }
     }
+
+    &.iso {
+        width: 100px;
+        height: 100px;
+        padding-bottom: 0;
+        border-radius: 50%;
+        background-position: center center;
+        background-size: 94%;
+        background-color: #fff;
+        background-image: url("../../assets/images/icon/ISO9001_45001_col_square.png");
+    }
 }
